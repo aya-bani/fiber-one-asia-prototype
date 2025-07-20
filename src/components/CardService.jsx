@@ -13,7 +13,7 @@ const cardStyle = {
   minHeight: "200px",
 };
 
-const CardService = ({ title, description, index = 0, image, details }) => {
+const CardService = ({ title, description, index = 0, image }) => {
   const { isOpen: isModalOpen, openModal, closeModal } = useModal();
 
   const cardVariants = {
@@ -129,11 +129,14 @@ const CardService = ({ title, description, index = 0, image, details }) => {
         custom={index}
         onClick={openModal}
       >
-        {/* Background Image */}
         {image && (
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ 
+              backgroundImage: `url(${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
             initial={{ scale: 1.1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -181,13 +184,7 @@ const CardService = ({ title, description, index = 0, image, details }) => {
             {title}
           </motion.h3>
 
-          {/* Description */}
-          <motion.p
-            variants={textVariants}
-            className="text-white/90 text-sm leading-relaxed drop-shadow-lg"
-          >
-            {description}
-          </motion.p>
+        
 
           {/* Click indicator */}
           <motion.div
@@ -240,7 +237,11 @@ const CardService = ({ title, description, index = 0, image, details }) => {
                 {image && (
                   <motion.div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${image})` }}
+                    style={{ 
+                      backgroundImage: `url(${image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
                     initial={{ scale: 1.2 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.6 }}
@@ -285,31 +286,18 @@ const CardService = ({ title, description, index = 0, image, details }) => {
                     {description}
                   </p>
                   
-                  {details && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <h4 className="text-md font-semibold text-gray-800 mb-2">
-                        What We Offer:
-                      </h4>
-                      <ul className="space-y-2">
-                        {details.map((detail, idx) => (
-                          <motion.li
-                            key={idx}
-                            className="flex items-start space-x-2 text-gray-600"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.5 + idx * 0.1 }}
-                          >
-                            <span className="text-[#00A39B] mt-1">•</span>
-                            <span>{detail}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  )}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <h4 className="text-md font-semibold text-gray-800 mb-2">
+                      Service Description:
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      {description}
+                    </p>
+                  </motion.div>
 
                   {/* Action Buttons */}
                   <motion.div

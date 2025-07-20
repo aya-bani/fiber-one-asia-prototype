@@ -1,112 +1,50 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CardService from "./CardService";
-
+import DigitalSignage from "../assets/images/digital signage.png";
+import CommandCenter from "../assets/images/Commande Center.png";
+import AVAutomation from "../assets/images/AV automation.png";
 const services = [
   { 
-    title: "Design", 
-    description: "UI/UX, Prototyping, Wireframes",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "User Interface (UI) Design",
-      "User Experience (UX) Design",
-      "Wireframing and Prototyping",
-      "Design Systems and Style Guides",
-      "Responsive Design Solutions",
-      "Interactive Prototypes"
-    ]
+    title: "Interactive Touch Interface Solutions", 
+    description: "Interactive technology helps to improve collaboration in the workplace and classrooms. Interactive displays and projectors are the perfect alternative to whiteboards. They offer a rich collaborative experience for teams with features such as multipoint touch, seamless integration with business apps and video communication.",
+    image: DigitalSignage
   },
   { 
-    title: "Development", 
-    description: "Web, Mobile, Full-Stack",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "Frontend Development (React, Vue, Angular)",
-      "Backend Development (Node.js, Python, Java)",
-      "Mobile App Development (iOS, Android)",
-      "Full-Stack Development",
-      "API Development and Integration",
-      "Database Design and Management"
-    ]
+    title: "Command Centre", 
+    description: "Complex command centers require special consideration for far-reaching technical consideration and long-term support to make sure that the system is running every day of the year. An experienced audio-visual crew is paramount in avoiding any problems along the way and should be consulted during the planning stages of any such system.",
+    image: CommandCenter
   },
   { 
-    title: "Consulting", 
-    description: "Architecture, Tech Advice",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "Technology Architecture Planning",
-      "System Design and Optimization",
-      "Performance Optimization",
-      "Security Audits and Recommendations",
-      "Scalability Planning",
-      "Technology Stack Selection"
-    ]
+    title: "AV Automation", 
+    description: "Controls of multiple systems working in a room could become quite complicated to operate. AV automation is necessary to streamline all your business operations with a centralized control solution that lets you manage lights, temperature, shades, security, and commercial audio visual systems from one location.",
+    image: AVAutomation
   },
   { 
-    title: "SEO", 
-    description: "Optimization, Ranking, Audits",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "Search Engine Optimization",
-      "Keyword Research and Strategy",
-      "On-Page and Off-Page SEO",
-      "Technical SEO Audits",
-      "Content Optimization",
-      "Local SEO Services"
-    ]
+    title: "Intelligent Lighting Control", 
+    description: "With Intelligent Lighting Control, automatically change the lighting mode in your room based on triggers such as occupancy of room, sharing of presentation, boardroom discussion and videoconferencing mode. The intensity of the lights can also be adjusted from a touch screen.",
+    image: AVAutomation
   },
   { 
-    title: "Marketing", 
-    description: "Ads, Funnels, Analytics",
-    image: "https://images.unsplash.com/photo-1557838923-2985c318be48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "Digital Marketing Strategy",
-      "Social Media Marketing",
-      "Pay-Per-Click (PPC) Advertising",
-      "Email Marketing Campaigns",
-      "Conversion Rate Optimization",
-      "Marketing Analytics and Reporting"
-    ]
+    title: "Chope AI Room Booking", 
+    description: "Maximize the use of company space by introducing smarter room booking processes into the workplace. Effectively manage and reduce administration time by making it easier to book meeting and conference rooms.",
+    image: AVAutomation
   },
   { 
-    title: "Branding", 
-    description: "Logos, Style Guides",
-    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "Brand Identity Design",
-      "Logo Design and Branding",
-      "Visual Identity Systems",
-      "Brand Guidelines and Style Guides",
-      "Marketing Collateral Design",
-      "Brand Strategy Development"
-    ]
+    title: "Digital Signage", 
+    description: "Digital Signages are used to display digital content that typically draws customer’s attention and drives higher engagement. These include solutions such as standard LCD display, video wall, LED displays and special signages.",
+    image: DigitalSignage
   },
   { 
-    title: "Testing", 
-    description: "QA, Automation, Reports",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "Quality Assurance Testing",
-      "Automated Testing Solutions",
-      "Performance Testing",
-      "Security Testing",
-      "User Acceptance Testing",
-      "Test Planning and Documentation"
-    ]
+    title: "Video Wall", 
+    description: "A video wall is a special multi-monitor setup that consists of multiple computer monitors, video projectors, or television sets tiled together contiguously or overlapped in order to form one large screen.",
+    image: DigitalSignage
   },
   { 
-    title: "Support", 
-    description: "Maintenance, SLAs, Updates",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    details: [
-      "24/7 Technical Support",
-      "System Maintenance and Updates",
-      "Bug Fixes and Troubleshooting",
-      "Performance Monitoring",
-      "Backup and Recovery Services",
-      "Service Level Agreements (SLAs)"
-    ]
-  },
+    title: "Unified Communications and Collaboration", 
+    description: "Unified Communications and Collaboration Video conferencing is a live video-based meeting between two or more people in different locations using video-enabled devices. Video conferencing allows multiple people to meet and collaborate face to face long distance by transmitting audio, video, text and presentations in real time through the internet.",
+    image: DigitalSignage
+  }
 ];
 
 const containerStyle = {
@@ -163,7 +101,6 @@ const ServicesSection = () => {
               title={service.title}
               description={service.description}
               image={service.image}
-              details={service.details}
               index={index}
             />
           ))}

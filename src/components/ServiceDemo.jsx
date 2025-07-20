@@ -16,46 +16,22 @@ const serviceImages = {
 
 const ServiceDemo = () => {
   const demoServices = [
-    {
-      title: "UI/UX Design",
-      description: "Beautiful, intuitive user experiences",
-      image: serviceImages.design,
-      details: [
-        "User Research and Persona Development",
-        "Wireframing and Prototyping",
-        "Visual Design and Brand Integration",
-        "User Testing and Iteration",
-        "Design System Creation",
-        "Responsive Design Implementation"
-      ]
-    },
-    {
-      title: "Web Development",
-      description: "Modern, scalable web applications",
-      image: serviceImages.development,
-      details: [
-        "Frontend Development (React, Vue, Angular)",
-        "Backend Development (Node.js, Python)",
-        "Database Design and Management",
-        "API Development and Integration",
-        "Performance Optimization",
-        "Deployment and DevOps"
-      ]
-    },
-    {
-      title: "Digital Marketing",
-      description: "Data-driven marketing strategies",
-      image: serviceImages.marketing,
-      details: [
-        "Search Engine Marketing (SEM)",
-        "Social Media Marketing",
-        "Content Marketing Strategy",
-        "Email Marketing Campaigns",
-        "Analytics and Reporting",
-        "Conversion Rate Optimization"
-      ]
-    }
-  ];
+  {
+    title: "UI/UX Design",
+    description: "Beautiful, intuitive user experiences that convert visitors into customers. We create engaging interfaces that prioritize user needs and business goals.",
+    image: serviceImages.design
+  },
+  {
+    title: "Web Development",
+    description: "Modern, scalable web applications built with cutting-edge technologies. From simple websites to complex enterprise solutions, we deliver robust and maintainable code.",
+    image: serviceImages.development
+  },
+  {
+    title: "Digital Marketing",
+    description: "Data-driven marketing strategies that increase brand awareness and drive conversions. We use analytics and optimization to maximize your marketing ROI.",
+    image: serviceImages.marketing
+  }
+];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12">
@@ -90,13 +66,12 @@ const ServiceDemo = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
             >
-              <CardService
-                title={service.title}
-                description={service.description}
-                image={service.image}
-                details={service.details}
-                index={index}
-              />
+                              <CardService
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  index={index}
+                />
             </motion.div>
           ))}
         </motion.div>
