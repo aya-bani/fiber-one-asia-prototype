@@ -13,7 +13,8 @@ const cardStyle = {
   minHeight: "200px",
 };
 
-const CardService = ({ title, description, index = 0, image }) => {
+// Accept icon and iconColor as props
+const CardService = ({ title, description, index = 0, image, icon: Icon, iconColor = "#fff" }) => {
   const { isOpen: isModalOpen, openModal, closeModal } = useModal();
 
   const cardVariants = {
@@ -119,8 +120,8 @@ const CardService = ({ title, description, index = 0, image }) => {
 
   return (
     <>
-      <motion.div
-        style={cardStyle}
+    <motion.div
+      style={cardStyle}
         variants={cardVariants}
         initial="hidden"
         whileInView="visible"
@@ -142,15 +143,14 @@ const CardService = ({ title, description, index = 0, image }) => {
             transition={{ duration: 0.3 }}
           />
         )}
-        
-        {/* Dark overlay for better text readability */}
+        {/* Darker overlay for better text readability */}
         <motion.div
-          className="absolute inset-0 bg-black bg-opacity-40"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 0.6 }}
+          className="absolute inset-0 bg-black"
+          style={{ opacity: 0.55 }} // Increased opacity for darker effect
+          initial={{ opacity: 0.55 }}
+          whileHover={{ opacity: 0.7 }}
           transition={{ duration: 0.3 }}
         />
-
         {/* Animated background gradient */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-[#00A39B]/5 to-[#913880]/5"
@@ -158,22 +158,26 @@ const CardService = ({ title, description, index = 0, image }) => {
           whileHover={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         />
-        
         <div className="relative z-10">
           {/* Animated icon */}
           <motion.div
-            className="w-12 h-12 bg-gradient-to-br from-[#00A39B] to-[#913880] rounded-full flex items-center justify-center mb-4"
+            className="w-12 h-12 rounded-full flex items-center justify-center mb-4"
+            style={{ background: `linear-gradient(135deg, ${iconColor}33 0%, #22222233 100%)` }}
             variants={iconVariants}
             whileHover="hover"
           >
-            <motion.div
-              className="text-white text-xl font-bold"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: index * 0.1 + 0.6 }}
-            >
-              {title.charAt(0)}
-            </motion.div>
+            {Icon ? (
+              <Icon size={32} color={iconColor} />
+            ) : (
+              <motion.div
+                className="text-white text-xl font-bold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: index * 0.1 + 0.6 }}
+              >
+                {title.charAt(0)}
+              </motion.div>
+            )}
           </motion.div>
 
           {/* Title */}
@@ -315,7 +319,7 @@ const CardService = ({ title, description, index = 0, image }) => {
                     </motion.button>
                     <motion.button
                       className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
-                      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={closeModal}
                     >
@@ -325,7 +329,7 @@ const CardService = ({ title, description, index = 0, image }) => {
                 </motion.div>
               </div>
             </motion.div>
-          </motion.div>
+    </motion.div>
         )}
       </AnimatePresence>
     </>
