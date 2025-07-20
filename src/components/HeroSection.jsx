@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import VideoPlayer from "./VideoPlayer";
+import heroBg from "../assets/images/hero section.png";
 
 const HeroSection = () => {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -60,35 +60,21 @@ const HeroSection = () => {
     }
   };
 
-
-
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Animated background elements */}
-      <motion.div
-        className="absolute inset-0 opacity-10"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 50%, rgba(0, 163, 155, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 20%, rgba(0, 163, 155, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 50%, rgba(0, 163, 155, 0.3) 0%, transparent 50%)"
-          ]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
       {/* Grid layout */}
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-        
         {/* Left Content */}
         <motion.div
           className="text-white space-y-8"
@@ -101,29 +87,27 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            CONNECTING ASIA WITH FIBER
+            INNOVATION IN EVERY CONNECTION
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline - More attractive */}
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight drop-shadow-xl"
             variants={floatingVariants}
             animate="animate"
           >
-            <span className="text-[#00A39B]">Fiber One Asia</span>
-            <br />
-            <span className="text-white">Solutions</span>
+           
+            <span >Fiber One Asia</span>
           </motion.h1>
 
-          {/* Sub-headline */}
+          {/* Sub-headline - More impactful */}
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-lg"
+            className="text-xl md:text-2xl text-gray-200 leading-relaxed max-w-lg drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Transform your business with cutting-edge fiber optic technology, 
-            intelligent networking solutions, and seamless connectivity across Asia.
+            Experience the next generation of connectivity. Ultra-fast, ultra-reliable, and built for tomorrow’s digital world. Join the leaders who trust Fiber One Asia to power their growth.
           </motion.p>
 
           {/* Benefits */}
@@ -135,15 +119,15 @@ const HeroSection = () => {
           >
             <div className="flex items-center space-x-3">
               <div className="w-2 h-2 bg-[#00A39B] rounded-full"></div>
-              <span className="text-gray-300">High-Speed Connectivity</span>
+              <span className="text-gray-200">Lightning-Fast Fiber Networks</span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-2 h-2 bg-[#00A39B] rounded-full"></div>
-              <span className="text-gray-300">Reliable Infrastructure</span>
+              <span className="text-gray-200">Seamless Business Solutions</span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-2 h-2 bg-[#00A39B] rounded-full"></div>
-              <span className="text-gray-300">24/7 Support</span>
+              <span className="text-gray-200">Trusted Across Asia</span>
             </div>
           </motion.div>
 
@@ -187,39 +171,12 @@ const HeroSection = () => {
             title="Fiber Network Demo"
             subtitle="Click to play video"
             showOverlay={true}
-            // Add your video file here when ready:
-            // videoSrc="/path/to/your/video.mp4"
-            // posterSrc="/path/to/your/poster.jpg"
+            // videoSrc and posterSrc can be added here
           />
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{
-          y: [0, 10, 0]
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <motion.div
-            className="w-1 h-3 bg-white rounded-full mt-2"
-            animate={{
-              y: [0, 12, 0]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        </div>
-      </motion.div>
+    
     </motion.div>
   );
 };

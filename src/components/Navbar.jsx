@@ -66,42 +66,49 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      className="bg-white shadow-md sticky top-0 z-50"
+      className="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50"
       initial="hidden"
       animate="visible"
       variants={navVariants}
     >
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center py-5">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <img src="src\assets\images\logo fiber_one.png" alt="Fiber One Asia Logo" />
+          <motion.img
+            src="src/assets/images/logo fiber_one.png"
+            alt="Fiber One Asia Logo"
+            className="h-10 w-auto cursor-pointer drop-shadow-md"
+            whileHover={{ scale: 1.08, filter: "drop-shadow(0 4px 16px #00A39B33)" }}
+            transition={{ type: "spring", stiffness: 300 }}
+          />
         </motion.div>
 
         {/* Desktop Links */}
         <motion.ul 
-          className="hidden md:flex space-x-6 font-medium"
+          className="hidden md:flex space-x-8 font-semibold tracking-wide"
           variants={navVariants}
         >
           {links.map((link, index) => (
-            <motion.li key={index} variants={linkVariants}>
+            <motion.li key={index} variants={linkVariants} className="relative">
               <motion.a
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="text-gray-700 hover:text-[#00A39B] transition-colors duration-100 relative"
+                className="text-gray-700 hover:text-[#00A39B] transition-colors duration-150 relative px-2 py-1"
                 whileHover={{ 
-                  scale: 1.05,
+                  scale: 1.07,
                   color: "#00A39B"
                 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {link}
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#00A39B]"
+                <motion.span
+                  className="absolute left-0 right-0 -bottom-0.5 h-0.5 bg-[#00A39B] rounded-full origin-left"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.25, type: "spring" }}
+                  style={{ display: "block" }}
                 />
               </motion.a>
             </motion.li>
@@ -145,13 +152,13 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden px-4 pb-4 bg-white border-t border-gray-100"
+            className="md:hidden px-4 pb-4 bg-white/90 backdrop-blur-md border-t border-gray-100 shadow-lg rounded-b-2xl"
             variants={mobileMenuVariants}
             initial="closed"
             animate="open"
             exit="closed"
           >
-            <motion.ul className="space-y-3 font-medium">
+            <motion.ul className="space-y-3 font-semibold">
               {links.map((link, index) => (
                 <motion.li key={index} variants={mobileLinkVariants}>
                   <motion.a

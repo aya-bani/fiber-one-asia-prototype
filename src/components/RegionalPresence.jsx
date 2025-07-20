@@ -12,15 +12,6 @@ const countries = [
   { name: "Philippines", label: "Regional Office", code: "PH" },
 ];
 
-// SVG paths for the 5 countries (simplified for demo; you can replace with more detailed paths)
-const countryPaths = {
-  SG: "M 670 420 l 5 2 l -2 5 l -5 -2 z", // Singapore (tiny, demo only)
-  MY: "M 650 400 l 20 10 l -10 20 l -20 -10 z", // Malaysia
-  ID: "M 700 500 l 40 10 l -10 20 l -40 -10 z", // Indonesia
-  IN: "M 600 350 l 40 20 l -20 40 l -40 -20 z", // India
-  PH: "M 800 450 l 10 20 l -20 10 l -10 -20 z", // Philippines
-};
-
 const RegionalPresence = () => {
   const [hovered, setHovered] = useState(null);
 
@@ -29,29 +20,68 @@ const RegionalPresence = () => {
       {/* SVG Map */}
       <div className="w-full md:w-2/3 flex justify-center">
         <svg
-          viewBox="500 300 400 300"
+          viewBox="0 0 900 600"
           width="100%"
           height="340"
           className="max-w-xl"
         >
           {/* Asia background (light gray) */}
+          <g>
+            {/* The rest of Asia (background) */}
+            <path d="M 60 100 Q 300 50 800 100 Q 870 200 800 500 Q 400 600 100 400 Q 30 250 60 100 Z" fill="#e5e7eb" />
+          </g>
+          {/* India */}
           <path
-            d="M 520 320 Q 700 310 850 350 Q 900 400 850 550 Q 700 600 550 500 Q 500 400 520 320 Z"
-            fill="#e5e7eb"
+            d="M 370 270 L 410 320 L 400 370 L 370 390 L 340 350 L 350 300 Z"
+            fill={hovered === "IN" ? HIGHLIGHT : "#b6e4e0"}
+            stroke="#008F87"
+            strokeWidth={hovered === "IN" ? 3 : 1}
+            style={{ cursor: "pointer", transition: "all 0.2s" }}
+            onMouseEnter={() => setHovered("IN")}
+            onMouseLeave={() => setHovered(null)}
           />
-          {/* Highlightable countries */}
-          {countries.map((c) => (
-            <path
-              key={c.code}
-              d={countryPaths[c.code]}
-              fill={hovered === c.code ? HIGHLIGHT : "#b6e4e0"}
-              stroke="#008F87"
-              strokeWidth={hovered === c.code ? 3 : 1}
-              style={{ cursor: "pointer", transition: "all 0.2s" }}
-              onMouseEnter={() => setHovered(c.code)}
-              onMouseLeave={() => setHovered(null)}
-            />
-          ))}
+          {/* Malaysia */}
+          <path
+            d="M 480 370 L 500 390 L 510 410 L 490 420 L 470 400 Z"
+            fill={hovered === "MY" ? HIGHLIGHT : "#b6e4e0"}
+            stroke="#008F87"
+            strokeWidth={hovered === "MY" ? 3 : 1}
+            style={{ cursor: "pointer", transition: "all 0.2s" }}
+            onMouseEnter={() => setHovered("MY")}
+            onMouseLeave={() => setHovered(null)}
+          />
+          {/* Singapore */}
+          <circle
+            cx="510"
+            cy="420"
+            r="6"
+            fill={hovered === "SG" ? HIGHLIGHT : "#b6e4e0"}
+            stroke="#008F87"
+            strokeWidth={hovered === "SG" ? 3 : 1}
+            style={{ cursor: "pointer", transition: "all 0.2s" }}
+            onMouseEnter={() => setHovered("SG")}
+            onMouseLeave={() => setHovered(null)}
+          />
+          {/* Indonesia */}
+          <path
+            d="M 540 470 L 600 490 L 650 510 L 630 530 L 570 510 L 550 490 Z"
+            fill={hovered === "ID" ? HIGHLIGHT : "#b6e4e0"}
+            stroke="#008F87"
+            strokeWidth={hovered === "ID" ? 3 : 1}
+            style={{ cursor: "pointer", transition: "all 0.2s" }}
+            onMouseEnter={() => setHovered("ID")}
+            onMouseLeave={() => setHovered(null)}
+          />
+          {/* Philippines */}
+          <path
+            d="M 700 390 L 720 410 L 710 430 L 690 420 Z"
+            fill={hovered === "PH" ? HIGHLIGHT : "#b6e4e0"}
+            stroke="#008F87"
+            strokeWidth={hovered === "PH" ? 3 : 1}
+            style={{ cursor: "pointer", transition: "all 0.2s" }}
+            onMouseEnter={() => setHovered("PH")}
+            onMouseLeave={() => setHovered(null)}
+          />
         </svg>
       </div>
       {/* Country List */}
