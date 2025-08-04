@@ -1,17 +1,19 @@
 import  { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const links = [
-    "Home",
-    "About",
-    "Solutions",
-    "Gallery",
-    "Download AV Book",
-    "Contact",
+    { name: "Home", path: "/" },
+    { name: "About", path: "/#about" },
+    { name: "Solutions", path: "/#solutions" },
+    { name: "Gallery", path: "/#gallery" },
+    { name: "AV Design Guide", path: "/av-guide" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const navVariants = {
@@ -93,16 +95,37 @@ const Navbar = () => {
         >
           {links.map((link, index) => (
             <motion.li key={index} variants={linkVariants} className="relative">
-              <motion.a
-                href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="text-gray-700 hover:text-[#00A39B] transition-colors duration-150 relative px-2 py-1"
-                whileHover={{ 
-                  scale: 1.07,
-                  color: "#00A39B"
-                }}
-                whileTap={{ scale: 0.95 }}
+              <motion.div
+                className={`relative px-2 py-1 ${
+                  location.pathname === link.path ? 'text-[#00A39B]' : 'text-gray-700'
+                }`}
               >
-                {link}
+                {link.path.startsWith('/#') ? (
+                  <motion.a
+                    href={link.path}
+                    className="hover:text-[#00A39B] transition-colors duration-150"
+                    whileHover={{ 
+                      scale: 1.07,
+                      color: "#00A39B"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {link.name}
+                  </motion.a>
+                ) : (
+                  <Link to={link.path}>
+                    <motion.div
+                      className="hover:text-[#00A39B] transition-colors duration-150 cursor-pointer"
+                      whileHover={{ 
+                        scale: 1.07,
+                        color: "#00A39B"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {link.name}
+                    </motion.div>
+                  </Link>
+                )}
                 <motion.span
                   className="absolute left-0 right-0 -bottom-0.5 h-0.5 bg-[#00A39B] rounded-full origin-left"
                   initial={{ scaleX: 0 }}
@@ -110,7 +133,7 @@ const Navbar = () => {
                   transition={{ duration: 0.25, type: "spring" }}
                   style={{ display: "block" }}
                 />
-              </motion.a>
+              </motion.div>
             </motion.li>
           ))}
         </motion.ul>
@@ -161,15 +184,28 @@ const Navbar = () => {
             <motion.ul className="space-y-3 font-semibold">
               {links.map((link, index) => (
                 <motion.li key={index} variants={mobileLinkVariants}>
-                  <motion.a
-                    href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="block text-gray-700 hover:text-[#00A39B] transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-gray-50"
-                    whileHover={{ x: 10 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link}
-                  </motion.a>
+                  {link.path.startsWith('/#') ? (
+                    <motion.a
+                      href={link.path}
+                      className="block text-gray-700 hover:text-[#00A39B] transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-gray-50"
+                      whileHover={{ x: 10 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </motion.a>
+                  ) : (
+                    <Link to={link.path}>
+                      <motion.div
+                        className="block text-gray-700 hover:text-[#00A39B] transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-gray-50 cursor-pointer"
+                        whileHover={{ x: 10 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.name}
+                      </motion.div>
+                    </Link>
+                  )}
                 </motion.li>
               ))}
             </motion.ul>

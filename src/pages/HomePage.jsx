@@ -1,4 +1,3 @@
-import React from "react";
 import ServiceSection from "../components/ServiceSection";
 import RegionalPresence from "../components/RegionalPresence";
 import AboutSection from "../components/AboutSection"
