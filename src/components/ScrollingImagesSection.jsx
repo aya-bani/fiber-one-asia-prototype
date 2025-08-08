@@ -64,7 +64,7 @@ const ScrollingImagesSection = () => {
             }}
             transition={{
               x: {
-                duration: isHovered ? 0 : 30,
+                duration: isHovered ? 120 : 30,
                 repeat: isHovered ? 0 : Infinity,
                 ease: "linear",
               },
@@ -106,9 +106,6 @@ const ScrollingImagesSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <p className="text-sm text-gray-500">
-            Hover to pause • Scroll to see more
-          </p>
         </motion.div>
       </div>
     </section>

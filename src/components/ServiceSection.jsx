@@ -1,9 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CardService from "./CardService";
-import DigitalSignage from "../assets/images/digital signage.png";
-import CommandCenter from "../assets/images/Commande Center.png";
-import AVAutomation from "../assets/images/AV automation.png";
+import {services} from "../data"
 // Import icons from react-icons/md
 import { 
   MdTouchApp, 
@@ -16,64 +14,6 @@ import {
   MdPeopleOutline 
 } from "react-icons/md";
 
-const services = [
-  { 
-    title: "Interactive Touch Interface Solutions", 
-    description: "Interactive technology helps to improve collaboration in the workplace and classrooms. Interactive displays and projectors are the perfect alternative to whiteboards. They offer a rich collaborative experience for teams with features such as multipoint touch, seamless integration with business apps and video communication.",
-    image: DigitalSignage,
-    icon: MdTouchApp,
-    iconColor: "#00A39B"
-  },
-  { 
-    title: "Command Centre", 
-    description: "Complex command centers require special consideration for far-reaching technical consideration and long-term support to make sure that the system is running every day of the year. An experienced audio-visual crew is paramount in avoiding any problems along the way and should be consulted during the planning stages of any such system.",
-    image: CommandCenter,
-    icon: MdOutlineSecurity,
-    iconColor: "#F59E42"
-  },
-  { 
-    title: "AV Automation", 
-    description: "Controls of multiple systems working in a room could become quite complicated to operate. AV automation is necessary to streamline all your business operations with a centralized control solution that lets you manage lights, temperature, shades, security, and commercial audio visual systems from one location.",
-    image: AVAutomation,
-    icon: MdSettingsRemote,
-    iconColor: "#913880"
-  },
-  { 
-    title: "Intelligent Lighting Control", 
-    description: "With Intelligent Lighting Control, automatically change the lighting mode in your room based on triggers such as occupancy of room, sharing of presentation, boardroom discussion and videoconferencing mode. The intensity of the lights can also be adjusted from a touch screen.",
-    image: AVAutomation,
-    icon: MdLightbulbOutline,
-    iconColor: "#FFD600"
-  },
-  { 
-    title: "Chope AI Room Booking", 
-    description: "Maximize the use of company space by introducing smarter room booking processes into the workplace. Effectively manage and reduce administration time by making it easier to book meeting and conference rooms.",
-    image: AVAutomation,
-    icon: MdEventAvailable,
-    iconColor: "#00B8D9"
-  },
-  { 
-    title: "Digital Signage", 
-    description: "Digital Signages are used to display digital content that typically draws customer’s attention and drives higher engagement. These include solutions such as standard LCD display, video wall, LED displays and special signages.",
-    image: DigitalSignage,
-    icon: MdTv,
-    iconColor: "#3B82F6"
-  },
-  { 
-    title: "Video Wall", 
-    description: "A video wall is a special multi-monitor setup that consists of multiple computer monitors, video projectors, or television sets tiled together contiguously or overlapped in order to form one large screen.",
-    image: DigitalSignage,
-    icon: MdViewComfy,
-    iconColor: "#F43F5E"
-  },
-  { 
-    title: "Unified Communications and Collaboration", 
-    description: "Unified Communications and Collaboration Video conferencing is a live video-based meeting between two or more people in different locations using video-enabled devices. Video conferencing allows multiple people to meet and collaborate face to face long distance by transmitting audio, video, text and presentations in real time through the internet.",
-    image: DigitalSignage,
-    icon: MdPeopleOutline,
-    iconColor: "#10B981"
-  }
-];
 
 const containerStyle = {
   display: "grid",
