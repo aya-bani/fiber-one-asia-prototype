@@ -6,11 +6,13 @@ import Footer from '../components/Footer'
 import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ScrollingImagesSection from "../components/ScrollingImagesSection"
+import FiberOneAsia from "../components/FiberOneAsia";
 const HomePage = () => {
   return (
     <div>
       <HeroSection/>
       <ScrollingImagesSection/>
+      <FiberOneAsia/>
       <AboutSection/>
       <RegionalPresence />
       <ServiceSection />
