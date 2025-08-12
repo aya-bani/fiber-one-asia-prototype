@@ -53,7 +53,7 @@ export default function FiberOneAsia() {
   }, []);
 
   return (
-    <section className="h-[50vh] flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
+    <section className="h-[30vh] flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export default function FiberOneAsia() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="flex items-center gap-4"
         >
-          <h1 className="mx-4 text-5xl md:text-9xl font-extrabold tracking-tight leading-none">
+          <h1 className="mx-4 text-4xl md:text-9xl font-extrabold tracking-tight leading-none">
             FIBER
           </h1>
 

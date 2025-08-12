@@ -14,7 +14,7 @@ const containerVariants = {
 
 const ServicesSection = () => {
   return (
-    <div className="bg-gray-50 py-12">
+    <div className="bg-[#F6F5F4] py-12">
       <motion.div
         className="max-w-7xl mx-auto"
         variants={containerVariants}
@@ -29,12 +29,21 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+        <motion.h2
+            className="text-4xl font-bold text-[#00A39B]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Our Services
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive solutions tailored to your business needs.
-          </p>
+          </motion.h2>            
+          <motion.h2
+            className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+          >            Comprehensive solutions tailored to your business needs.
+          </motion.h2>
         </motion.div>
 
         {/* Services Grid - 2 per row */}

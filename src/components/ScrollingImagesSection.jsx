@@ -16,7 +16,7 @@ const ScrollingImagesSection = () => {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <section className="w-full bg-white py-12 overflow-hidden">
+    <section className="w-full bg-[#F6F5F4] py-12 overflow-hidden">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }

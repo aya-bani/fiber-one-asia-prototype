@@ -5,7 +5,6 @@ import MapChart from "../components/MapChart"
 // Brand highlight color
 const HIGHLIGHT = "#00A39B";
 const BACKGROUND = "#e5e7eb";
-const BORDER = "#d1d5db";
 
 // Country data - only the 5 main countries
 const countries = [
@@ -21,29 +20,40 @@ const RegionalPresence = () => {
 
   return (
     <motion.div 
-      className="flex flex-col md:flex-row items-center justify-center bg-white rounded-2xl shadow-lg p-8 max-w-6xl mx-auto my-16"
+      className="flex flex-col md:flex-row items-center justify-center bg-white  p-8 w-screen"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
       {/* SVG Map */}
-      <div className="w-full md:w-2/3 flex justify-center">
+      <div className="w-full md:w-3/5 flex justify-center">
               <MapChart/>
       </div>
 
       {/* Country List */}
       <motion.div 
-        className="w-full md:w-1/3 mt-8 md:mt-0 md:ml-8"
+        className="w-full md:w-2/5  md:mt-0 md:ml-8"
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-bold text-center md:text-left mb-6 text-[#00A39B]">Regional Presence</h2>
-        <p className="text-gray-600 mb-6 text-center md:text-left">
-          Serving clients across the Asia-Pacific region with local expertise and global standards.
-        </p>
+        <motion.h2
+            className="text-4xl font-bold text-[#00A39B] text-center md:text-left "
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Regional Presence
+          </motion.h2>
+        <motion.h2
+            className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight my-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+          >          Serving clients across the Asia-Pacific region with local expertise and global standards.
+        </motion.h2>
         <ul className="space-y-3">
           {countries.map((c, index) => (
             <motion.li

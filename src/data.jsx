@@ -111,3 +111,44 @@ export const services = [
     iconColor: "#10B981"
   }
 ];
+
+export // Add this at the top of your file or import from somewhere
+const testimonials = [
+  {
+    id: 1,
+    text: "Overall, good support and response from Fiber One.",
+    rating: 5,
+    clientName: "Statutory Board in Singapore",
+    clientType: "Regular Customer",
+    location: "Singapore",
+    featured: false
+  },
+  {
+    id: 2,
+    text: "Fiber One is responsive and provides professional services to client.",
+    rating: 5,
+    clientName: "Government Office in Singapore",
+    clientType: "Regular Customer",
+    location: "Singapore",
+    featured: false
+  },
+  {
+    id: 3,
+    text: "Fiber One team has two recent projects for us and the workmanship was really good and we are really satisfied with the projects they have done with us.",
+    rating: 5,
+    clientName: "Scientific and Technical Research Organization",
+    clientType: "Regular Customer",
+    location: "Singapore",
+    featured: true
+  },
+  {
+    id: 4,
+    text: "Fiber One is responsive and provides professional services to client.",
+    rating: 5,
+    clientName: "Government Office in Singapore",
+    clientType: "Regular Customer",
+    location: "Singapore",
+    featured: false
+  }
+];
+

@@ -39,7 +39,7 @@ const AboutSection = () => {
 
   return (
    <motion.div
-  className="bg-[#D7F4F1] flex flex-col lg:flex-row items-start justify-between w-full  lg:px-16 py-20 space-y-12 lg:space-y-0 lg:space-x-16"
+  className="bg-[#F6F5F4] flex flex-col lg:flex-row items-start justify-between w-full  lg:px-16 py-20 space-y-12 lg:space-y-0 lg:space-x-16"
   variants={containerVariants}
   initial="hidden"
   whileInView="visible"
@@ -53,17 +53,17 @@ const AboutSection = () => {
       >
         {/* Heading */}
         <div className="space-y-3">
-          <motion.h3
+          <motion.h2
             className="text-4xl font-bold text-[#00A39B]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             About US
-          </motion.h3>
+          </motion.h2>
           
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight"
+            className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7 }}
