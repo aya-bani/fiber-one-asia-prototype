@@ -36,60 +36,54 @@ const features = [
 
 const WhyWorkWithUs = () => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-20">
-      {/* Animated Headline */}
-      <motion.h2
-        className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-[#00A39B]"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        Why Work With Us
-      </motion.h2>
-      <motion.p
-        className="text-lg md:text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.7 }}
-      >
-        Discover what makes Fiber One Asia the preferred technology partner for organizations across Southeast Asia.
-      </motion.p>
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map((f, i) => (
-          <motion.div
-            key={f.title}
-            className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-start justify-between min-h-[320px] h-full border border-gray-100 hover:shadow-2xl transition-all duration-300 group"
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.2 + i * 0.12, duration: 0.7, type: "spring" }}
-            whileHover={{ scale: 1.04, boxShadow: "0 8px 32px #00A39B22", y: -6 }}
+    <section className="w-full px-4 py-20 flex flex-col items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 w-full max-w-7xl">
+        
+        {/* Sticky Section */}
+        <div className="lg:sticky lg:top-20 self-start">
+          <motion.h2
+            className="text-4xl md:text-5xl font-extrabold mb-4 text-[#00A39B]"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-[#00A39B]/10 mb-4">
-              <f.icon size={32} className="text-[#00A39B] group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <div className="mb-2">
+            Why Work With Us
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl text-gray-700 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
+            Discover what makes Fiber One Asia the preferred technology partner for organizations across Southeast Asia.
+          </motion.p>
+        </div>
+
+        {/* Scrollable Cards */}
+        <div className="flex flex-col gap-8">
+          {features.map((f, i) => (
+            <motion.div
+              key={f.title}
+              className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-6 flex flex-col"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.2 + i * 0.12, duration: 0.7, type: "spring" }}
+              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px #00A39B22", y: -6 }}
+            >
+              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-[#00A39B]/10 mb-4">
+                <f.icon size={32} className="text-[#00A39B]" />
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-1">{f.title}</h3>
-              <div className="text-sm font-semibold text-[#00A39B] mb-2 opacity-80 group-hover:opacity-100 transition">{f.subtitle}</div>
-            </div>
-            <p className="text-gray-600 text-base flex-1">{f.desc}</p>
-          </motion.div>
-        ))}
+              <div className="text-sm font-semibold text-[#00A39B] mb-3 opacity-80">
+                {f.subtitle}
+              </div>
+              <p className="text-gray-600 text-base flex-1">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      {/* CTA Banner */}
-      <motion.div
-        className="mt-16 bg-[#00A39B]/10 rounded-2xl py-8 px-6 text-center max-w-2xl mx-auto shadow-lg"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.7 }}
-      >
-        <h4 className="text-xl md:text-2xl font-bold mb-2 text-gray-900">Ready to Transform Your Business?</h4>
-        <p className="text-gray-700 text-base md:text-lg">
-          Partner with us to leverage cutting-edge audio-visual solutions that drive innovation and exceed your business objectives.
-        </p>
-      </motion.div>
     </section>
   );
 };
 
-export default WhyWorkWithUs; 
+export default WhyWorkWithUs;

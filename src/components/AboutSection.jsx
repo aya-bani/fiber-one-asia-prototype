@@ -38,13 +38,14 @@ const AboutSection = () => {
   };
 
   return (
-    <motion.div
-      className="flex flex-col lg:flex-row items-start justify-between w-full max-w-7xl mx-auto px-4 py-20 space-y-12 lg:space-y-0 lg:space-x-16"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-    >
+   <motion.div
+  className="bg-[#D7F4F1] flex flex-col lg:flex-row items-start justify-between w-full  lg:px-16 py-20 space-y-12 lg:space-y-0 lg:space-x-16"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-100px" }}
+>
+
       {/* Left Side - Text Content (2/5 width) */}
       <motion.div
         className="lg:flex-[2] lg:max-w-none space-y-6"

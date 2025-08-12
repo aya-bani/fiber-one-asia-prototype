@@ -7,6 +7,7 @@ import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ScrollingImagesSection from "../components/ScrollingImagesSection"
 import FiberOneAsia from "../components/FiberOneAsia";
+import PreFooterSection from "../components/PreFooterSection";
 const HomePage = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const HomePage = () => {
       <ServiceSection />
       <WhyWorkWithUs/>
       <TestimonialsSection/>
+      <PreFooterSection/>
       <Footer/>
     </div>
   );
