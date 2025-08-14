@@ -87,15 +87,15 @@ const AboutSection = () => {
           <ul className="space-y-2 text-base text-gray-700">
             <li className="flex items-start">
               <span className="text-[#00A39B] font-bold mr-2">•</span>
-              <span><span className="font-semibold">15+ countries</span> where our services create lasting value</span>
+              <span><span className="font-semibold text-[#00739f]">15+ countries</span> where our services create lasting value</span>
             </li>
             <li className="flex items-start">
               <span className="text-[#00A39B] font-bold mr-2">•</span>
-              <span><span className="font-semibold">1,700+ satisfied clients</span> who trust us</span>
+              <span><span className="font-semibold text-[#00739f]">1,700+ satisfied clients</span> who trust us</span>
             </li>
             <li className="flex items-start">
               <span className="text-[#00A39B] font-bold mr-2">•</span>
-              <span><span className="font-semibold">1,000+ successful projects</span> completed</span>
+              <span><span className="font-semibold text-[#00739f]">1,000+ successful projects</span> completed</span>
             </li>
           </ul>
 

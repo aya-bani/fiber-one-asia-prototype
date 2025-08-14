@@ -179,10 +179,10 @@ const TestimonialsSection = () => {
           </motion.div>
           
           <motion.h2
-            className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight"
+            className="text-4xl font-bold text-[#00A39B]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ duration: 0.6 }}
           >
             What Our Clients Say
           </motion.h2>
