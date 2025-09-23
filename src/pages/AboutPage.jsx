@@ -83,20 +83,28 @@ const SectionTitle = ({ title, subtitle }) => (
 
 const InfoCard = ({ icon: Icon, title, description }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    whileHover={{ y: -10, boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}
-    transition={{ duration: 0.4 }}
-    viewport={{ once: true }}
+    initial={{ opacity: 0, scale: 0.8, y: 50 }}
+    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.3 }}
+    whileHover={{
+      y: -10,
+      boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+    }}
     className="bg-white text-center p-10 rounded-2xl shadow-lg border border-gray-100 transition cursor-pointer"
   >
-    <div className="flex justify-center items-center w-20 h-20 rounded-full bg-[#E0F7F6] mx-auto mb-6">
+    <motion.div
+      className="flex justify-center items-center w-20 h-20 rounded-full bg-[#E0F7F6] mx-auto mb-6"
+      whileHover={{ scale: 1.1, rotate: 10 }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
       <Icon className="text-4xl text-[#00A39B]" />
-    </div>
+    </motion.div>
     <h3 className="font-bold text-2xl mb-3">{title}</h3>
     <p className="text-lg text-gray-600">{description}</p>
   </motion.div>
 );
+
 
 const TimelineItem = ({ year, title, description, reverse, icon: Icon }) => (
   <motion.div

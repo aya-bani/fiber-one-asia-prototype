@@ -17,7 +17,7 @@
     "@use-gesture/react": "^10.3.1",
     "aos": "^2.3.4",
     "d3-geo": "^3.1.1",
-    "framer-motion": "^12.23.6",
+    "framer-motion": "^12.23.19",
     "gsap": "^3.13.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.525.0",
