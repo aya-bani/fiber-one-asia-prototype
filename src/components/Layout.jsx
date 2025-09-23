@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+
 
 const Layout = () => {
   const pageVariants = {
@@ -60,6 +62,7 @@ const Layout = () => {
           <Outlet />
         </motion.main>
       </AnimatePresence>
+      <Footer/>
     </motion.div>
   );
 };

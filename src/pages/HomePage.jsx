@@ -15,7 +15,7 @@ const HomePage = () => {
       <ScrollingImagesSection/>
       <FiberOneAsia/>
       <AboutSection/>
-      <RegionalPresence />
+      <RegionalPresence/>
       <ServiceSection />
       <WhyWorkWithUs/>
       <TestimonialsSection/>

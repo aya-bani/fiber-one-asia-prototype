@@ -7,14 +7,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const links = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/#about" },
-    { name: "Solutions", path: "/solutions" },
-    { name: "Gallery", path: "/#gallery" },
-    { name: "AV Design Guide", path: "/av-guide" },
-    { name: "Contact", path: "/contact" },
-  ];
+const links = [
+  { name: "Home", path: "/home" },
+  { name: "About", path: "/about" },
+  { name: "Solutions", path: "/solutions" },
+  { name: "Gallery", path: "/home#gallery" }, // corrected
+  { name: "AV Design Guide", path: "/av-guide" },
+  { name: "Contact", path: "/contact" },
+];
+
 
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
