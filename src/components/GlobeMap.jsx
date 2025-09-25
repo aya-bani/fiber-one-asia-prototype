@@ -16,6 +16,7 @@ const GlobeMap = ({ hovered }) => {
   ];
 
   useEffect(() => {
+    // Fetch country data
     fetch("https://unpkg.com/world-atlas@2/countries-110m.json")
       .then((res) => res.json())
       .then((worldData) => {
@@ -29,9 +30,15 @@ const GlobeMap = ({ hovered }) => {
 
   useEffect(() => {
     if (globeEl.current) {
-      globeEl.current.controls().autoRotate = true;
-      globeEl.current.controls().autoRotateSpeed = 0.4;
-      globeEl.current.controls().enableZoom = false;
+      const globe = globeEl.current;
+
+      // Enable auto-rotate
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = 0.4;
+      globe.controls().enableZoom = false;
+
+      // Center the globe at lat 0, lng 0 with smooth zoom
+      globe.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 1000);
     }
   }, []);
 
@@ -39,7 +46,7 @@ const GlobeMap = ({ hovered }) => {
     <Globe
       ref={globeEl}
       backgroundColor="#ffffff"
-      globeMaterial={new THREE.MeshPhongMaterial({ 
+      globeMaterial={new THREE.MeshPhongMaterial({
         color: "#e6e6e6",
         shininess: 20,
         emissive: "#000000",
@@ -47,10 +54,10 @@ const GlobeMap = ({ hovered }) => {
       })}
       polygonsData={countries.features}
       polygonCapColor={({ properties }) => {
-        if (properties.name === hovered) return "#00FFD1"; // brighter teal for hover
+        if (properties.name === hovered) return "#00FFD1"; // highlight hovered
         return HIGHLIGHTED_COUNTRIES.includes(properties.name)
           ? "#00A39B" // regular highlight
-          : "#cccccc"; // non-highlighted countries
+          : "#cccccc"; // non-highlighted
       }}
       polygonSideColor={() => "rgba(0,0,0,0.05)"}
       polygonStrokeColor={() => "#666"}

@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, CSSProperties, useEffect } from "react";
 import { useTransition, animated, useSpringRef } from "@react-spring/web";
 import { motion } from "framer-motion";
+import OurDifference from "../components/OurDifference";
 import {
   FaRocket,
   FaStar,
@@ -199,7 +201,7 @@ export default function AboutPage() {
 
   useEffect(() => {
     transRef.start();
-  }, [index]);
+  }, [index, transRef]);
 
   const nextSlide = () => {
     set((prev) => (prev + 1) % pages.length);
@@ -256,7 +258,7 @@ export default function AboutPage() {
       <section className="py-20 bg-[#F9FAFB]">
         <SectionTitle
           title="Why Choose Us"
-          subtitle="Here’s what makes us the trusted choice for our clients"
+          subtitle="Here's what makes us the trusted choice for our clients"
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
           <InfoCard
@@ -276,6 +278,9 @@ export default function AboutPage() {
           />
         </div>
       </section>
+
+      {/* Our Difference */}
+      <OurDifference />
 
       {/* Our Journey */}
       <section className="py-20 bg-white">
