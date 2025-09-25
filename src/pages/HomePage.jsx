@@ -1,5 +1,5 @@
 import ServiceSection from "../components/ServiceSection";
-import RegionalPresence from "../components/RegionalPresence";
+import GlobeMap from "../components/GlobeMap";
 import AboutSection from "../components/AboutSection"
 import HeroSection from "../components/HeroSection"
 import Footer from '../components/Footer'
@@ -8,6 +8,7 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import ScrollingImagesSection from "../components/ScrollingImagesSection"
 import FiberOneAsia from "../components/FiberOneAsia";
 import PreFooterSection from "../components/PreFooterSection";
+import RegionalPresence from "../components/RegionalPresence";
 const HomePage = () => {
   return (
     <div>
@@ -20,7 +21,7 @@ const HomePage = () => {
       <WhyWorkWithUs/>
       <TestimonialsSection/>
       <PreFooterSection/>
-      <Footer/>
+   
     </div>
   );
 };

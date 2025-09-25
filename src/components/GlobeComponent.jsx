@@ -1,54 +1,46 @@
-// GlobeMap.jsx
-import React, { useEffect, useRef, useState } from "react";
-import Globe from "react-globe.gl";
+// GlobeComponent.jsx
+import React, { useRef, useEffect, useState } from 'react';
+import Globe from 'react-globe.gl';
 
-const HIGHLIGHTED_COUNTRIES = [
-  "India",
-  "Singapore",
-  "Malaysia",
-  "Indonesia",
-  "Philippines"
-];
-
-const GlobeMap = () => {
+const GlobeComponent = () => {
   const globeEl = useRef();
   const [countries, setCountries] = useState({ features: [] });
 
-  // Fetch GeoJSON for countries
   useEffect(() => {
-    fetch("https://unpkg.com/world-atlas@2/countries-110m.json")
-      .then((res) => res.json())
-      .then((worldData) => {
-        const countriesData = Globe().topojson.feature(worldData, worldData.objects.countries);
-        setCountries(countriesData);
+    // Load GeoJSON for world countries
+    fetch('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson')
+      .then(res => res.json())
+      .then(data => {
+        // Filter only needed countries
+        const selected = ["India", "Singapore", "Malaysia", "Indonesia", "Philippines"];
+        const filtered = {
+          ...data,
+          features: data.features.filter(d => selected.includes(d.properties.name))
+        };
+        setCountries(filtered);
       });
-  }, []);
 
-  // Auto-rotate the globe
-  useEffect(() => {
-    if (globeEl.current) {
-      globeEl.current.controls().autoRotate = true;
-      globeEl.current.controls().autoRotateSpeed = 0.5;
-    }
+    // Auto-rotate
+    globeEl.current.controls().autoRotate = true;
+    globeEl.current.controls().autoRotateSpeed = 1.2;
   }, []);
 
   return (
-    <div className="w-full h-[600px] mx-auto rounded-lg border shadow">
+    <div style={{ width: '100%', height: '100vh' }}>
       <Globe
         ref={globeEl}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-        backgroundColor="#ffffff"
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
         polygonsData={countries.features}
-        polygonCapColor={({ properties }) =>
-          HIGHLIGHTED_COUNTRIES.includes(properties.name) ? "#00A39B" : "rgba(200, 200, 200, 0.2)"
-        }
-        polygonSideColor={() => "rgba(0, 100, 0, 0.05)"}
-        polygonStrokeColor={() => "#111"}
-        polygonLabel={({ properties }) => properties.name}
-        polygonsTransitionDuration={300}
+        polygonCapColor={() => '#913880'}
+        polygonSideColor={() => 'rgba(255, 255, 255, 0.15)'}
+        polygonStrokeColor={() => '#111'}
+        polygonAltitude={0.01}
+        polygonLabel={({ properties: d }) => `${d.name}`}
+        onPolygonHover={d => globeEl.current.controls().autoRotate = !d}
       />
     </div>
   );
 };
 
-export default GlobeMap;
+export default GlobeComponent;

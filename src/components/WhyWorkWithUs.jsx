@@ -1,42 +1,35 @@
 import { motion } from "framer-motion";
 import {
-  FaUserTie,
-  FaUsers,
-  FaLightbulb,
-  FaCogs,
-  FaCheckCircle,
+  FaGlobeAsia,
+  FaUsersCog,
+  FaMedal,
+  FaHandshake,
 } from "react-icons/fa";
 
 const features = [
   {
-    icon: FaUserTie,
-    title: "Industry Experience",
+    icon: FaGlobeAsia,
+    title: "Regional coverage",
     subtitle: "Multi-sector expertise",
     desc: "Fiber One Asia is constantly building its base of industry knowledge through consulting teams that work across multiple organizations in various sectors.",
   },
   {
-    icon: FaUsers,
-    title: "Brilliant Team",
+    icon: FaUsersCog,
+    title: "In-house teams",
     subtitle: "Senior consultants",
     desc: "Our team leverages a network of senior consultants who are passionate about delivering excellence, innovation, and measurable value.",
   },
   {
-    icon: FaLightbulb,
-    title: "Creative & Professional",
+    icon: FaMedal,
+    title: "Consistent service",
     subtitle: "Quality-driven approach",
     desc: "Our professional approach improves process quality, product quality, and performance to meet business objectives.",
   },
   {
-    icon: FaCogs,
-    title: "Complex Solutions",
+    icon: FaHandshake,
+    title: "Extensive list of partners",
     subtitle: "Future-ready solutions",
     desc: "We go beyond methodology—designing solutions tailored to your current needs and ready to grow with your organization.",
-  },
-  {
-    icon: FaCheckCircle,
-    title: "100% Result Guarantee",
-    subtitle: "Guaranteed results",
-    desc: "Continuous innovation, rapid transformation, and sustainability have defined Fiber One Asia's history of success.",
   },
 ];
 
@@ -45,7 +38,7 @@ const WhyWorkWithUs = () => {
     <section className="w-full px-4 py-20 flex flex-col items-center bg-[#D7F4F1]">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 w-full max-w-7xl">
         {/* Sticky / Centered Intro Section */}
-        <div className="lg:sticky lg:top-20 self-start flex flex-col items-center justify-center text-center  px-4">
+        <div className="lg:sticky lg:top-20 self-start flex flex-col items-center justify-center text-center px-4">
           <motion.h2
             className="text-4xl md:text-5xl font-extrabold mb-6 text-[#00A39B] leading-snug"
             initial={{ opacity: 0, y: -30 }}
