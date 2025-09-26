@@ -21,6 +21,7 @@ import {
   FaHandshake
 } from "react-icons/fa";
 import ScrollingImagesSection from "../components/ScrollingImagesSection";
+import MapChart from "../components/MapChart";
 // ---------------- Styles for Hero Section ----------------
 const heroStyles = {
   container: {
@@ -70,7 +71,7 @@ const SectionTitle = ({ title, subtitle }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
-    className="text-center "
+    className="text-center my-4 "
   >
     <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-800">
       {title}
@@ -232,7 +233,7 @@ export default function AboutPage() {
           title="Our Regional Presence"
           subtitle="Proudly serving clients and communities across the globe"
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
           {[
             { name: "North America", color: "#FF6B6B" },
             { name: "Europe", color: "#4ECDC4" },
@@ -250,7 +251,8 @@ export default function AboutPage() {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
+        <MapChart/>
       </section>
 
       {/* Why Choose Us */}
