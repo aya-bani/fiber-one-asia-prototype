@@ -33,7 +33,7 @@ const heroStyles = {
     overflow: "hidden",
     background: "#f5f5f5",
     borderRadius: "20px",
-    marginBottom: "4rem"
+    marginBottom: "0rem"
   },
   slide: {
     position: "absolute",
@@ -70,7 +70,7 @@ const SectionTitle = ({ title, subtitle }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
-    className="text-center mb-16"
+    className="text-center "
   >
     <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-800">
       {title}
@@ -237,8 +237,7 @@ export default function AboutPage() {
             { name: "North America", color: "#FF6B6B" },
             { name: "Europe", color: "#4ECDC4" },
             { name: "Asia", color: "#FFD93D" },
-            { name: "Middle East", color: "#6A4C93" },
-            { name: "Africa", color: "#1A936F" }
+            { name: "Middle East", color: "#6A4C93" },            { name: "Africa", color: "#1A936F" }
           ].map((region) => (
             <div
               key={region.name}
@@ -255,7 +254,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-[#F9FAFB]">
+      <section className="py-20  bg-[#F6F5F4]">
         <SectionTitle
           title="Why Choose Us"
           subtitle="Here's what makes us the trusted choice for our clients"
@@ -326,7 +325,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-[#F9FAFB]">
+      <section className="py-20  bg-[#F6F5F4]">
         <SectionTitle
           title="Our Impact in Numbers"
           subtitle="A quick look at our achievements so far"

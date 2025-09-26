@@ -12,11 +12,11 @@ const ScrollingImagesSection = () => {
     "https://via.placeholder.com/200x100/002F2D/FFFFFF?text=Client+8",
   ];
 
-  // Duplicate images for a seamless loop
+  // Duplicate images for infinite scrolling
   const duplicatedImages = [...images, ...images];
 
   return (
-    <section className="w-full bg-[#F6F5F4] py-12 overflow-hidden">
+    <section className="w-full bg-[#F6F5F4] py-16 overflow-hidden relative">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -24,17 +24,17 @@ const ScrollingImagesSection = () => {
         }
         .scroll-container {
           display: flex;
-          animation: scroll 30s linear infinite;
+          animation: scroll 25s linear infinite;
         }
         .scroll-wrapper:hover .scroll-container {
           animation-play-state: paused;
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6 relative">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-8"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -47,26 +47,28 @@ const ScrollingImagesSection = () => {
           </p>
         </motion.div>
 
-        {/* Scrolling Images */}
+        {/* Scrolling Logos */}
         <div className="relative scroll-wrapper">
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          {/* Left Gradient Shadow */}
+          {/* <div className="absolute left-0 top-0 w-32 h-full  z-20 pointer-events-none"></div>
+          {/* Right Gradient Shadow */}
+          {/* <div className="absolute right-0 top-0 w-32 h-full  z-20 pointer-events-none"></div> */}
 
-          {/* Image Strip */}
-          <div className="scroll-container gap-8">
+          {/* Logos Strip */}
+          <div className="scroll-container gap-10">
             {duplicatedImages.map((image, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="flex-shrink-0 bg-white rounded-lg shadow-md p-4 border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                whileHover={{ scale: 1.05 }}
+                className="flex-shrink-0 bg-white rounded-lg shadow-sm p-4 border border-gray-100 hover:shadow-lg transition-all duration-300"
               >
                 <img
                   src={image}
                   alt={`Client ${index + 1}`}
-                  className="h-16 w-auto object-contain"
+                  className="h-16 w-auto object-contain select-none"
                   draggable="false"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

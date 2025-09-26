@@ -72,7 +72,7 @@ const OurDifference = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section className="py-20 bg-[#D7F4F1]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -82,10 +82,10 @@ const OurDifference = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#00A39B] mb-4">
             Our Difference
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl  max-w-4xl mx-auto leading-relaxed">
             Our comprehensive end-to-end services create seamless workplace experiences. From technical consulting to final implementation, our in-house experts handle it all.
           </p>
         </motion.div>
@@ -107,10 +107,10 @@ const OurDifference = () => {
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className="lg:col-span-7 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
+              className="lg:col-span-7  rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
             >
               {/* Gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-800/20 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-transparent  rounded-2xl"></div>
               
               {/* Content */}
               <div className="relative z-10 h-full flex flex-col">
@@ -123,10 +123,10 @@ const OurDifference = () => {
 
                 {/* Title and Description */}
                 <div className="text-center flex-1 flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
+                  <h3 className="text-2xl font-bold text-[#008B8B] mb-4 leading-tight">
                     Catch-all solutions for your hybrid workspace.
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className=" leading-relaxed">
                     Experience the latest leading-edge technology for seamless collaboration.
                   </p>
                 </div>
@@ -140,10 +140,10 @@ const OurDifference = () => {
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className="lg:col-span-3 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
+              className="lg:col-span-3 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
             >
               {/* Gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-800/20 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-transparent  rounded-2xl"></div>
               
               {/* Content */}
               <div className="relative z-10 h-full flex flex-col">
@@ -156,10 +156,10 @@ const OurDifference = () => {
 
                 {/* Title and Description */}
                 <div className="text-center flex-1 flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-white mb-4 leading-tight">
+                  <h3 className="text-xl font-bold text-[#008B8B] mb-4 leading-tight">
                     Hassle-free support, anytime, anywhere.
                   </h3>
-                  <p className="text-gray-300 leading-relaxed text-sm">
+                  <p className=" leading-relaxed text-sm">
                     Let our support team take care of your collaboration systems, so you can take care of your business.
                   </p>
                 </div>
@@ -174,10 +174,10 @@ const OurDifference = () => {
               y: -8,
               transition: { duration: 0.3 }
             }}
-            className="w-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
+            className="w-full rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
           >
             {/* Gradient overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-800/20 rounded-2xl"></div>
+            <div className="absolute inset-0 bg-transparent rounded-2xl"></div>
             
             {/* Content */}
             <div className="relative z-10">
@@ -193,10 +193,10 @@ const OurDifference = () => {
 
                   {/* Title and Description */}
                   <div className="text-center lg:text-left">
-                    <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
+                    <h3 className="text-2xl font-bold text-[#008B8B]  mb-4 leading-tight">
                       Smart, insightful, and actionable analytics.
                     </h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="leading-relaxed">
                       Optimize workplace provisioning and policies based on data-driven insights to drive productivity and resource maximization.
                     </p>
                   </div>

@@ -45,7 +45,7 @@ const PreFooterSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-screen h-screen overflow-hidden bg-[#D7F4F1] flex flex-col justify-center items-center"
+      className="relative w-screen h-screen overflow-hidden bg-[#D7F4F1] flex flex-col justify-center items-center pt-12 my-8"
     >
       {/* Animated background bars */}
       <div className="absolute inset-0 flex flex-col justify-center">
