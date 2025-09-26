@@ -4,7 +4,6 @@ import { useTrail, animated as a } from "@react-spring/web";
 import heroVideo from "../assets/videos/Smart City Digital City Video.mp4";
 import AnimatedSubtitles from "./AnimatedSubtitles";
 
-
 // Trail animation component
 const Trail = ({ open, children }) => {
   const items = React.Children.toArray(children);
@@ -25,7 +24,7 @@ const Trail = ({ open, children }) => {
             ...style,
             overflow: "hidden",
             display: "inline-block",
-            marginRight: "0.25rem"
+            marginRight: "0.25rem",
           }}
         >
           <a.div style={{ height }}>{items[index]}</a.div>
@@ -38,7 +37,6 @@ const Trail = ({ open, children }) => {
 const HeroSection = () => {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [open, setOpen] = useState(true);
 
   // Track scroll progress
   const { scrollYProgress } = useScroll({
@@ -62,18 +60,42 @@ const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden"
-      style={{ scrollSnapAlign: "start" }}
+      className="relative w-screen h-screen overflow-hidden"
+      style={{
+        scrollSnapAlign: "start",
+        width: "100vw",
+        height: "100vh",
+        minHeight: "100vh",
+        position: "relative",
+        margin: 0
+      }}
     >
-      {/* Background video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src={heroVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
+      {/* Background video with subtle rolling b-roll (slow zoom) */}
+      <motion.div
+        className="absolute inset-0 w-full h-full"
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.06 }}
+        transition={{
+          duration: 25,
+          ease: "linear",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      >
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover"
+          }}
+        />
+      </motion.div>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black opacity-80" />
@@ -82,7 +104,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
         {/* Sticky headline */}
         <motion.h1
-          className="text-8xl font-extrabold leading-tight max-w-5xl"
+          className="text-6xl md:text-8xl font-extrabold leading-tight max-w-6xl"
           style={{
             scale: headlineScale,
             opacity: headlineOpacity,
@@ -96,7 +118,7 @@ const HeroSection = () => {
 
         {/* Subtitles */}
         <div className="mt-12 max-w-4xl">
-                <AnimatedSubtitles />
+          <AnimatedSubtitles />
         </div>
       </div>
     </section>

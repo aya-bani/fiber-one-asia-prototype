@@ -45,7 +45,7 @@ const PreFooterSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-20 overflow-hidden bg-[#D7F4F1]"
+      className="relative w-screen h-screen overflow-hidden bg-[#D7F4F1] flex flex-col justify-center items-center"
     >
       {/* Animated background bars */}
       <div className="absolute inset-0 flex flex-col justify-center">
@@ -55,9 +55,15 @@ const PreFooterSection = () => {
               key={i}
               className="h-[2px] bg-white my-[1px]"
               style={{
-                width: scrollYProgress.to(scrollP => {
+                width: scrollYProgress.to((scrollP) => {
                   const percentilePosition = (i + 1) / X_LINES;
-                  return INITIAL_WIDTH / 4 + 40 * Math.cos(((percentilePosition - scrollP) * Math.PI) / 1.5) ** 32;
+                  return (
+                    INITIAL_WIDTH / 4 +
+                    40 *
+                      Math.cos(
+                        ((percentilePosition - scrollP) * Math.PI) / 1.5
+                      ) ** 32
+                  );
                 }),
               }}
             />
@@ -66,20 +72,22 @@ const PreFooterSection = () => {
       </div>
 
       {/* Animated heading & subheading */}
-      <div className="text-center mb-16 relative z-10">
-        <h2 className="text-4xl font-bold text-[#00A39B]">
-          <animated.span style={textStyles}>Creative work, reimagined with AI</animated.span>
+      <div className="text-center mb-12 relative z-10">
+        <h2 className="text-5xl font-bold text-[#00A39B]">
+          <animated.span style={textStyles}>
+            Creative work, reimagined with AI
+          </animated.span>
         </h2>
-        <p className=" max-w-xl mx-auto">
+        <p className="max-w-2xl mx-auto text-lg text-gray-800">
           One suite with AI tools you trust and premium stock assets you’ll love.
         </p>
-        <button className="mt-6 bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+        <button className="mt-6 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition">
           Get started for free →
         </button>
       </div>
 
       {/* Video + Side Images */}
-      <div className="flex items-center justify-center gap-8 relative z-10">
+      <div className="flex items-center justify-center gap-8 relative z-10 w-full max-w-7xl">
         {/* Left Images */}
         <div className="flex flex-col gap-6">
           {imagesLeft.map((img, i) => (

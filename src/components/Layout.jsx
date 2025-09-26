@@ -52,7 +52,7 @@ const Layout = () => {
       <Navbar />
       <AnimatePresence mode="wait">
         <motion.main 
-          className="p-4"
+          className="p-0"
           key={window.location.pathname}
           variants={pageVariants}
           initial="initial"
