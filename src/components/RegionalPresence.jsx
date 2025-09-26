@@ -16,9 +16,10 @@ export default function RegionalPresence() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center p-8 gap-8">
       {/* Map */}
-      <div className="w-full md:w-3/5 h-[600px] rounded-lg shadow-lg overflow-hidden border">
+      <div className="w-full md:w-3/5 h-[600px] rounded-lg shadow-lg overflow-hidden border flex items-center justify-center">
         <GlobeMap hovered={hovered} />
       </div>
+
 
       {/* Country list */}
       <div className="w-full md:w-2/5 flex flex-col">
