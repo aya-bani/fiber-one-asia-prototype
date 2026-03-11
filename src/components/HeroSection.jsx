@@ -103,8 +103,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
         {/* Sticky headline */}
+        {/* Responsive headline: scales from mobile to desktop */}
         <motion.h1
-          className="text-6xl md:text-8xl font-extrabold leading-tight max-w-6xl"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold leading-tight max-w-6xl px-2"
           style={{
             scale: headlineScale,
             opacity: headlineOpacity,
@@ -116,8 +117,8 @@ const HeroSection = () => {
           Fiber One Asia
         </motion.h1>
 
-        {/* Subtitles */}
-        <div className="mt-12 max-w-4xl">
+        {/* Subtitles - responsive margin and max-width */}
+        <div className="mt-6 md:mt-12 max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl px-2">
           <AnimatedSubtitles />
         </div>
       </div>

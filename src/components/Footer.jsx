@@ -2,11 +2,13 @@ import { FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa"
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#0D2A3F] text-white pt-16 pb-8 px-4  rounded-t-3xl shadow-2xl overflow-hidden">
+    /* Responsive footer padding */
+    <footer className="relative bg-[#0D2A3F] text-white pt-10 md:pt-16 pb-6 md:pb-8 px-4 md:px-6 lg:px-8 rounded-t-3xl shadow-2xl overflow-hidden">
       <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-t-3xl pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-12 z-10">
-        <div className="flex-1 flex flex-col items-start justify-between min-w-[220px]">
-          <img src="src/assets/images/logo fiber_one.png" alt="Fiber One Asia Logo" className="h-12 mb-4 drop-shadow-lg" />
+      {/* Responsive footer grid: stack on mobile */}
+      <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-8 md:gap-12 z-10">
+        <div className="flex-1 flex flex-col items-start justify-between min-w-0 md:min-w-[220px]">
+          <img src="src/assets/images/logo fiber_one.png" alt="Fiber One Asia Logo" className="h-10 md:h-12 mb-4 drop-shadow-lg" />
           <p className="text-xl font-bold mb-2 text-[#6BD6CC]">Fiber One Asia</p>
           <p className="text-sm text-white/80 mb-4 max-w-xs">Empowering Asia with next-generation fiber connectivity and smart solutions.</p>
         </div>

@@ -141,12 +141,12 @@ const AVDesignGuide = () => {
 
   return (
     <div className={`${isFullscreen ? 'fixed inset-0 z-50 bg-gradient-to-br from-slate-900 to-slate-800' : 'relative'} transition-all duration-500`}>
-      {/* Header */}
-      <div className="bg-gradient-to-r from-[#00A39B] to-[#008F87] text-white p-6 shadow-2xl relative z-10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      {/* Responsive header */}
+      <div className="bg-gradient-to-r from-[#00A39B] to-[#008F87] text-white p-4 md:p-6 shadow-2xl relative z-10">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <BookOpen className="w-8 h-8" />
+              <BookOpen className="w-6 h-6 md:w-8 md:h-8" />
               <motion.div
                 className="absolute inset-0 bg-white/20 rounded-full"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -154,11 +154,12 @@ const AVDesignGuide = () => {
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">FiberONE Asia</h1>
-              <p className="text-sm opacity-90">Audio-Visual Design Guide</p>
+              <h1 className="text-lg md:text-2xl font-bold">FiberONE Asia</h1>
+              <p className="text-xs md:text-sm opacity-90">Audio-Visual Design Guide</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
+          {/* Responsive button group: wrap on mobile */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
             <motion.button
               onClick={() => setIsFullscreen(!isFullscreen)}
               className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors duration-200 backdrop-blur-sm"
@@ -166,7 +167,7 @@ const AVDesignGuide = () => {
               whileTap={{ scale: 0.95 }}
             >
               {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-              <span className="ml-2">{isFullscreen ? "Exit Fullscreen" : "Fullscreen"}</span>
+              <span className="ml-2 hidden sm:inline">{isFullscreen ? "Exit Fullscreen" : "Fullscreen"}</span>
             </motion.button>
             <motion.button
               className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 backdrop-blur-sm"
@@ -174,14 +175,15 @@ const AVDesignGuide = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Download className="w-4 h-4" />
-              <span>Download PDF</span>
+              <span className="hidden sm:inline">Download PDF</span>
             </motion.button>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-slate-50 to-slate-100 min-h-[80vh] relative">
+        {/* Responsive main content area */}
+        <div className="flex-1 flex items-center justify-center p-4 md:p-8 bg-gradient-to-br from-slate-50 to-slate-100 min-h-[60vh] md:min-h-[80vh] relative">
         <div className="relative max-w-7xl w-full">
           {/* Page Counter */}
           <div className="text-center mb-8">
@@ -206,10 +208,10 @@ const AVDesignGuide = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200"
               >
-                {/* Page Header */}
-                <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-8 border-b border-slate-200">
+                {/* Responsive page header */}
+                <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-4 md:p-6 lg:p-8 border-b border-slate-200">
                   <motion.h2 
-                    className="text-4xl font-bold text-slate-900 text-center mb-4"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 text-center mb-3 md:mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -224,8 +226,8 @@ const AVDesignGuide = () => {
                   />
                 </div>
 
-                {/* Page Content */}
-                <div className="p-8">
+                {/* Responsive page content padding */}
+                <div className="p-4 md:p-6 lg:p-8">
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Left Column */}
                     <motion.div 

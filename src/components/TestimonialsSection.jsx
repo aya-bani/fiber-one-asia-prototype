@@ -30,7 +30,7 @@ const TestimonialCard = ({ testimonial }) => {
     <article
       tabIndex={0}
       aria-label={`Testimonial from ${testimonial.clientName}, ${testimonial.clientType} located in ${testimonial.location}`}
-      className="bg-white/90 backdrop-blur-md rounded-3xl shadow-md p-8 flex flex-col h-full border border-[#00A39B]/20 focus:outline-none focus:ring-4 focus:ring-[#00A39B]/40 transition"
+      className="bg-white/90 backdrop-blur-md rounded-3xl shadow-md p-4 sm:p-6 md:p-8 flex flex-col h-full border border-[#00A39B]/20 focus:outline-none focus:ring-4 focus:ring-[#00A39B]/40 transition"
     >
       {testimonial.featured && (
         <div className="absolute top-6 right-6 bg-gradient-to-r from-[#00A39B] to-[#008F87] text-white px-4 py-2 rounded-full text-xs font-semibold shadow-lg select-none pointer-events-none">
@@ -38,7 +38,8 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
       )}
 
-      <div className="text-7xl text-[#00A39B]/25 font-extrabold mb-4 select-none" aria-hidden="true">“</div>
+      {/* Responsive quote mark */}
+      <div className="text-4xl md:text-7xl text-[#00A39B]/25 font-extrabold mb-2 md:mb-4 select-none" aria-hidden="true">“</div>
 
       {/* Star Rating */}
       <div className="flex gap-1 mb-6" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
@@ -51,7 +52,8 @@ const TestimonialCard = ({ testimonial }) => {
         ))}
       </div>
 
-      <p className="text-gray-800 text-lg mb-8 leading-relaxed flex-grow">{testimonial.text}</p>
+      {/* Responsive testimonial text */}
+      <p className="text-gray-800 text-base md:text-lg mb-4 md:mb-8 leading-relaxed flex-grow">{testimonial.text}</p>
 
       <footer className="border-t border-[#00A39B]/20 pt-6 mt-auto">
         <h4 className="font-bold text-gray-900 mb-1 text-xl">{testimonial.clientName}</h4>
@@ -105,32 +107,36 @@ const NavigationArrows = ({ onPrev, onNext }) => {
 // Call to Action Component
 const CallToAction = () => {
   return (
+    /* Responsive CTA container padding */
     <motion.section
-      className="bg-gradient-to-br from-white/90 to-white/75 backdrop-blur-md rounded-3xl shadow-2xl p-12 text-center max-w-4xl mx-auto border border-white/30"
+      className="bg-gradient-to-br from-white/90 to-white/75 backdrop-blur-md rounded-3xl shadow-2xl p-6 md:p-8 lg:p-12 text-center max-w-4xl mx-auto border border-white/30"
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 1, duration: 0.6 }}
       whileHover={{ y: -3, boxShadow: "0 15px 30px rgba(0, 163, 155, 0.15)" }}
       tabIndex={-1}
     >
+      {/* Responsive CTA card padding and typography */}
       <motion.h3
-        className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 md:mb-6 tracking-tight"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
       >
         Join Our Satisfied Clients
       </motion.h3>
+      {/* Responsive CTA description */}
       <motion.p
-        className="text-gray-700 text-xl md:text-2xl mb-10 leading-relaxed max-w-xl mx-auto"
+        className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-10 leading-relaxed max-w-xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.6 }}
       >
         Experience professional AV solutions tailored for your business
       </motion.p>
+      {/* Responsive CTA button */}
       <motion.button
-        className="bg-gradient-to-r from-[#00A39B] to-[#008F87] text-white px-14 py-5 rounded-3xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#00A39B]/60"
+        className="bg-gradient-to-r from-[#00A39B] to-[#008F87] text-white px-8 md:px-14 py-3 md:py-5 rounded-3xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#00A39B]/60"
         whileHover={{
           scale: 1.05,
           boxShadow: "0 10px 30px rgba(0, 163, 155, 0.3)",
@@ -158,8 +164,9 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="w-full bg-gradient-to-br from-gray-50 via-blue-50/40 to-[#00A39B]/10 py-28">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+    /* Responsive section padding */
+    <section className="w-full bg-gradient-to-br from-gray-50 via-blue-50/40 to-[#00A39B]/10 py-12 md:py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           className="text-center mb-16 select-none"
@@ -188,8 +195,8 @@ const TestimonialsSection = () => {
           </motion.h2>
         </motion.div>
 
-        {/* Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-14 min-h-[430px]">
+        {/* Responsive testimonial cards: 1 col mobile, 2 col tablet, 3 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 mb-14 min-h-[430px]">
           <AnimatePresence mode="wait">
             {testimonials.slice(currentIndex * 3, currentIndex * 3 + 3).map((testimonial, index) => (
               <motion.div

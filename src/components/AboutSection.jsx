@@ -38,8 +38,9 @@ const AboutSection = () => {
   };
 
   return (
+   /* Responsive container: stack on mobile, side-by-side on lg */
    <motion.div
-  className="bg-[#F6F5F4] flex flex-col lg:flex-row items-start justify-between w-full  lg:px-16 py-20 space-y-12 lg:space-y-0 lg:space-x-16"
+  className="bg-[#F6F5F4] flex flex-col lg:flex-row items-start justify-between w-full px-4 md:px-8 lg:px-16 py-10 md:py-16 lg:py-20 space-y-12 lg:space-y-0 lg:space-x-16"
   variants={containerVariants}
   initial="hidden"
   whileInView="visible"
@@ -105,9 +106,9 @@ const AboutSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Right Side - Logo and Cards (3/5 width) */}
+      {/* Right Side - Logo and Cards (3/5 width) - hidden on mobile, visible on lg */}
       <motion.div
-        className="lg:flex-[4] relative lg:min-h-[600px] flex items-center justify-center"
+        className="hidden lg:flex lg:flex-[4] relative lg:min-h-[600px] items-center justify-center"
         variants={cardsContainerVariants}
       >
         {/* Company Logo */}

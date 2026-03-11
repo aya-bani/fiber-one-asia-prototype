@@ -71,25 +71,25 @@ const PreFooterSection = () => {
         </div>
       </div>
 
-      {/* Animated heading & subheading */}
-      <div className="text-center mb-12 relative z-10">
-        <h2 className="text-5xl font-bold text-[#00A39B]">
+      {/* Responsive heading and subheading */}
+      <div className="text-center mb-6 md:mb-12 relative z-10 px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#00A39B]">
           <animated.span style={textStyles}>
             Creative work, reimagined with AI
           </animated.span>
         </h2>
-        <p className="max-w-2xl mx-auto text-lg text-gray-800">
-          One suite with AI tools you trust and premium stock assets you’ll love.
+        <p className="max-w-2xl mx-auto text-sm md:text-base lg:text-lg text-gray-800">
+          One suite with AI tools you trust and premium stock assets you'll love.
         </p>
-        <button className="mt-6 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition">
+        <button className="mt-4 md:mt-6 bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base hover:bg-gray-200 transition">
           Get started for free →
         </button>
       </div>
 
-      {/* Video + Side Images */}
-      <div className="flex items-center justify-center gap-8 relative z-10 w-full max-w-7xl">
-        {/* Left Images */}
-        <div className="flex flex-col gap-6">
+      {/* Video + Side Images: side images hidden on mobile, only video shown */}
+      <div className="flex items-center justify-center gap-4 md:gap-8 relative z-10 w-full max-w-7xl px-4">
+        {/* Left Images - hidden on mobile and tablet */}
+        <div className="hidden lg:flex flex-col gap-6">
           {imagesLeft.map((img, i) => (
             <motion.img
               key={i}
@@ -102,10 +102,10 @@ const PreFooterSection = () => {
           ))}
         </div>
 
-        {/* Big Center Video */}
+        {/* Big Center Video - responsive width */}
         <motion.video
           src="src/assets/videos/technology.mp4"
-          className="rounded-2xl shadow-lg w-full max-w-4xl"
+          className="rounded-2xl shadow-lg w-full lg:max-w-4xl"
           autoPlay
           muted
           loop
@@ -115,8 +115,8 @@ const PreFooterSection = () => {
           transition={{ duration: 0.6 }}
         />
 
-        {/* Right Images */}
-        <div className="flex flex-col gap-6">
+        {/* Right Images - hidden on mobile and tablet */}
+        <div className="hidden lg:flex flex-col gap-6">
           {imagesRight.map((img, i) => (
             <motion.img
               key={i}

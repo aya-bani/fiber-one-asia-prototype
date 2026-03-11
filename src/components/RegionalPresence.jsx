@@ -14,16 +14,17 @@ export default function RegionalPresence() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center p-8 gap-8">
-      {/* Map */}
-      <div className="w-full md:w-3/5 h-[600px] rounded-lg shadow-lg overflow-hidden border flex items-center justify-center">
+    /* Responsive padding and layout */
+    <div className="flex flex-col md:flex-row items-center justify-center p-4 md:p-6 lg:p-8 gap-6 md:gap-8">
+      {/* Map - responsive height */}
+      <div className="w-full md:w-3/5 h-[350px] md:h-[450px] lg:h-[600px] rounded-lg shadow-lg overflow-hidden border flex items-center justify-center">
         <GlobeMap hovered={hovered} />
       </div>
 
 
-      {/* Country list */}
+      {/* Country list - responsive typography */}
       <div className="w-full md:w-2/5 flex flex-col">
-        <h2 className="text-3xl font-bold text-[#00A39B] mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#00A39B] mb-4 md:mb-6">
           Regional Presence
         </h2>
         <ul className="space-y-3">

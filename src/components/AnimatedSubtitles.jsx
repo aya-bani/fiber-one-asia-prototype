@@ -53,7 +53,8 @@ export default function AnimatedSubtitles() {
   }
 
   return (
-    <div style={{ height: "2.5rem", display: "flex", alignItems: "center" }}>
+    /* Responsive subtitle container height and font size */
+    <div className="h-8 sm:h-10 md:h-12 flex items-center">
       <AnimatePresence mode="wait">
         <motion.h1
           key={index}
@@ -61,11 +62,7 @@ export default function AnimatedSubtitles() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5 }}
-          style={{
-            fontSize: "2rem",
-            fontWeight: "bold",
-            margin: 0,
-          }}
+          className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold m-0"
         >
           {renderSubtitle(subtitles[index])}
         </motion.h1>

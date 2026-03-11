@@ -74,7 +74,8 @@ const links = [
       animate="visible"
       variants={navVariants}
     >
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center py-5">
+      {/* Responsive navbar container padding */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex justify-between items-center py-3 md:py-5">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

@@ -22,12 +22,13 @@ import {
 } from "react-icons/fa";
 import ScrollingImagesSection from "../components/ScrollingImagesSection";
 import MapChart from "../components/MapChart";
-// ---------------- Styles for Hero Section ----------------
+// ---------------- Responsive Styles for Hero Section ----------------
 const heroStyles = {
   container: {
     position: "relative",
     width: "100%",
-    height: "70vh",
+    height: "50vh",
+    minHeight: "300px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -41,11 +42,11 @@ const heroStyles = {
     width: "100%",
     height: "100%",
     color: "white",
-    fontSize: "3rem",
-    fontWeight: "bold",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    padding: "1rem",
+    textAlign: "center"
   },
   buttonContainer: {
     position: "absolute",
@@ -94,39 +95,40 @@ const InfoCard = ({ icon: Icon, title, description }) => (
       y: -10,
       boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
     }}
-    className="bg-white text-center p-10 rounded-2xl shadow-lg border border-gray-100 transition cursor-pointer"
+    className="bg-white text-center p-6 md:p-10 rounded-2xl shadow-lg border border-gray-100 transition cursor-pointer"
   >
     <motion.div
-      className="flex justify-center items-center w-20 h-20 rounded-full bg-[#E0F7F6] mx-auto mb-6"
+      className="flex justify-center items-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#E0F7F6] mx-auto mb-4 md:mb-6"
       whileHover={{ scale: 1.1, rotate: 10 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <Icon className="text-4xl text-[#00A39B]" />
+      <Icon className="text-3xl md:text-4xl text-[#00A39B]" />
     </motion.div>
-    <h3 className="font-bold text-2xl mb-3">{title}</h3>
-    <p className="text-lg text-gray-600">{description}</p>
+    <h3 className="font-bold text-xl md:text-2xl mb-2 md:mb-3">{title}</h3>
+    <p className="text-base md:text-lg text-gray-600">{description}</p>
   </motion.div>
 );
 
 
+/* Responsive timeline: vertical on mobile, side-by-side on md+ */
 const TimelineItem = ({ year, title, description, reverse, icon: Icon }) => (
   <motion.div
     initial={{ opacity: 0, x: reverse ? 70 : -70 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
-    className={`mb-16 flex ${reverse ? "flex-row-reverse" : "flex-row"} items-center`}
+    className={`mb-8 md:mb-16 flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : "md:flex-row"} items-center`}
   >
-    <div className="w-5/12"></div>
-    <div className="w-2/12 flex justify-center relative">
-      <div className="flex justify-center items-center w-14 h-14 bg-[#00A39B] text-white rounded-full shadow-lg z-10">
-        <Icon className="text-2xl" />
+    <div className="hidden md:block w-5/12"></div>
+    <div className="w-full md:w-2/12 flex justify-center relative mb-4 md:mb-0">
+      <div className="flex justify-center items-center w-12 h-12 md:w-14 md:h-14 bg-[#00A39B] text-white rounded-full shadow-lg z-10">
+        <Icon className="text-xl md:text-2xl" />
       </div>
     </div>
-    <div className="w-5/12 bg-white p-8 rounded-2xl shadow border border-gray-100">
-      <span className="text-[#00A39B] font-bold text-lg">{year}</span>
-      <h3 className="font-semibold text-2xl mb-2">{title}</h3>
-      <p className="text-lg text-gray-600">{description}</p>
+    <div className="w-full md:w-5/12 bg-white p-4 md:p-6 lg:p-8 rounded-2xl shadow border border-gray-100">
+      <span className="text-[#00A39B] font-bold text-base md:text-lg">{year}</span>
+      <h3 className="font-semibold text-lg md:text-2xl mb-2">{title}</h3>
+      <p className="text-base md:text-lg text-gray-600">{description}</p>
     </div>
   </motion.div>
 );
@@ -138,15 +140,15 @@ const TeamMember = ({ img, name, role }) => (
     whileHover={{ y: -8, boxShadow: "0 16px 35px rgba(0,0,0,0.12)" }}
     transition={{ duration: 0.4 }}
     viewport={{ once: true }}
-    className="bg-white p-8 rounded-2xl shadow border border-gray-100"
+    className="bg-white p-6 md:p-8 rounded-2xl shadow border border-gray-100"
   >
     <img
       src={img}
       alt={name}
-      className="w-36 h-36 rounded-full mx-auto mb-6 object-cover border-4 border-[#E0F7F6]"
+      className="w-24 h-24 md:w-36 md:h-36 rounded-full mx-auto mb-4 md:mb-6 object-cover border-4 border-[#E0F7F6]"
     />
-    <h3 className="font-bold text-2xl">{name}</h3>
-    <p className="text-lg text-[#00A39B]">{role}</p>
+    <h3 className="font-bold text-xl md:text-2xl">{name}</h3>
+    <p className="text-base md:text-lg text-[#00A39B]">{role}</p>
     <div className="flex justify-center mt-4 space-x-4 text-gray-500 text-xl">
       <a href="#" className="hover:text-[#00A39B]"><FaGlobe /></a>
       <a href="#" className="hover:text-[#00A39B]"><FaTwitter /></a>
@@ -161,28 +163,28 @@ const StatCard = ({ icon: Icon, value, label }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
-    className="bg-white p-10 rounded-2xl shadow-lg text-center border border-gray-100"
+    className="bg-white p-6 md:p-10 rounded-2xl shadow-lg text-center border border-gray-100"
   >
-    <Icon className="text-4xl text-[#00A39B] mb-4 mx-auto" />
-    <h3 className="text-4xl font-extrabold text-gray-800">{value}</h3>
-    <p className="text-lg text-gray-600">{label}</p>
+    <Icon className="text-3xl md:text-4xl text-[#00A39B] mb-3 md:mb-4 mx-auto" />
+    <h3 className="text-2xl md:text-4xl font-extrabold text-gray-800">{value}</h3>
+    <p className="text-base md:text-lg text-gray-600">{label}</p>
   </motion.div>
 );
 
 const pages = [
   ({ style }) => (
     <animated.div style={{ ...heroStyles.slide, ...style, background: "#00A39B" }}>
-      Propel Your Innovation
+      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Propel Your Innovation</span>
     </animated.div>
   ),
   ({ style }) => (
     <animated.div style={{ ...heroStyles.slide, ...style, background: "#DDF247", color: "#222" }}>
-      Creative Solutions
+      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Creative Solutions</span>
     </animated.div>
   ),
   ({ style }) => (
     <animated.div style={{ ...heroStyles.slide, ...style, background: "#4ECDC4" }}>
-      Accelerate Your Growth
+      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Accelerate Your Growth</span>
     </animated.div>
   )
 ];
@@ -228,7 +230,7 @@ export default function AboutPage() {
       <ScrollingImagesSection />
 
       {/* Regional Presence */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <SectionTitle
           title="Our Regional Presence"
           subtitle="Proudly serving clients and communities across the globe"
@@ -255,13 +257,13 @@ export default function AboutPage() {
         <MapChart/>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20  bg-[#F6F5F4]">
+      {/* Why Choose Us - responsive grid with padding */}
+      <section className="py-12 md:py-20 bg-[#F6F5F4]">
         <SectionTitle
           title="Why Choose Us"
           subtitle="Here's what makes us the trusted choice for our clients"
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 max-w-7xl mx-auto px-4 md:px-6">
           <InfoCard
             icon={FaUsers}
             title="Expert Team"
@@ -283,19 +285,20 @@ export default function AboutPage() {
       {/* Our Difference */}
       <OurDifference />
 
-      {/* Our Journey */}
-      <section className="py-20 bg-white">
+      {/* Our Journey - responsive section */}
+      <section className="py-12 md:py-20 bg-white">
         <SectionTitle
           title="Our Journey"
-          subtitle="From a spark of an idea to a global movement — here’s our story"
+          subtitle="From a spark of an idea to a global movement — here's our story"
         />
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto px-4 md:px-6">
+          {/* Timeline line - hidden on mobile */}
           <motion.div
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#00A39B]"
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#00A39B] hidden md:block"
           ></motion.div>
           <TimelineItem
             year="2018"
@@ -326,13 +329,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20  bg-[#F6F5F4]">
+      {/* Stats - responsive grid with padding */}
+      <section className="py-12 md:py-20 bg-[#F6F5F4]">
         <SectionTitle
           title="Our Impact in Numbers"
           subtitle="A quick look at our achievements so far"
         />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 max-w-7xl mx-auto px-4 md:px-6">
           <StatCard icon={FaBriefcase} value="150+" label="Projects Completed" />
           <StatCard icon={FaUsers} value="100+" label="Happy Clients" />
           <StatCard icon={FaAward} value="12" label="Awards Won" />
@@ -340,13 +343,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Meet Our Team */}
-      <section className="py-20 bg-white">
+      {/* Meet Our Team - responsive grid with padding */}
+      <section className="py-12 md:py-20 bg-white">
         <SectionTitle
           title="Meet the Visionaries"
           subtitle="Extraordinary people behind our extraordinary success"
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 max-w-7xl mx-auto px-4 md:px-6">
           <TeamMember
             img="https://randomuser.me/api/portraits/women/44.jpg"
             name="Sarah Johnson"

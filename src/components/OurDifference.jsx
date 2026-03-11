@@ -72,8 +72,9 @@ const OurDifference = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#D7F4F1]">
-      <div className="max-w-7xl mx-auto px-6">
+    /* Responsive section padding */
+    <section className="py-12 md:py-16 lg:py-20 bg-[#D7F4F1]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -82,10 +83,11 @@ const OurDifference = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00A39B] mb-4">
+          {/* Responsive section header typography */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#00A39B] mb-4">
             Our Difference
           </h2>
-          <p className="text-xl  max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed">
             Our comprehensive end-to-end services create seamless workplace experiences. From technical consulting to final implementation, our in-house experts handle it all.
           </p>
         </motion.div>
@@ -98,8 +100,8 @@ const OurDifference = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="space-y-8"
         >
-          {/* First Line - Two Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 h-96">
+          {/* Responsive grid: stack on mobile, 70/30 split on lg. Auto height on mobile, fixed on lg */}
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-4 md:gap-8 lg:h-96">
             {/* First Card - 70% width, 50% height */}
             <motion.div
               variants={itemVariants}
@@ -107,7 +109,7 @@ const OurDifference = () => {
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className="lg:col-span-7  rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
+              className="lg:col-span-7 rounded-2xl p-4 md:p-6 lg:p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
             >
               {/* Gradient overlay for depth */}
               <div className="absolute inset-0 bg-transparent  rounded-2xl"></div>
@@ -140,7 +142,7 @@ const OurDifference = () => {
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className="lg:col-span-3 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
+              className="lg:col-span-3 rounded-2xl p-4 md:p-6 lg:p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
             >
               {/* Gradient overlay for depth */}
               <div className="absolute inset-0 bg-transparent  rounded-2xl"></div>
@@ -167,14 +169,14 @@ const OurDifference = () => {
             </motion.div>
           </div>
 
-          {/* Second Line - Full Width Card */}
+          {/* Second Line - Full Width Card: responsive padding */}
           <motion.div
             variants={itemVariants}
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3 }
             }}
-            className="w-full rounded-2xl p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
+            className="w-full rounded-2xl p-4 md:p-6 lg:p-8 shadow-2xl border border-gray-700 hover:border-[#00A39B] transition-all duration-300 relative overflow-hidden"
           >
             {/* Gradient overlay for depth */}
             <div className="absolute inset-0 bg-transparent rounded-2xl"></div>

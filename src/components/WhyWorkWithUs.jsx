@@ -35,8 +35,9 @@ const features = [
 
 const WhyWorkWithUs = () => {
   return (
-    <section className="w-full px-4 py-20 flex flex-col items-center bg-[#D7F4F1]">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 w-full max-w-7xl">
+    /* Responsive section padding */
+    <section className="w-full px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 flex flex-col items-center bg-[#D7F4F1]">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 md:gap-12 w-full max-w-7xl">
         {/* Sticky / Centered Intro Section */}
         <div className="lg:sticky lg:top-20 self-start flex flex-col items-center justify-center text-center px-4">
           <motion.h2
@@ -61,8 +62,8 @@ const WhyWorkWithUs = () => {
           </motion.p>
         </div>
 
-        {/* Scrollable Cards */}
-        <div className="flex flex-col gap-8">
+        {/* Responsive feature cards gap */}
+        <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
           {features.map((f, i) => (
             <motion.div
               key={f.title}

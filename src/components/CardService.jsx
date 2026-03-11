@@ -53,8 +53,8 @@ const CardService = ({
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
-        {/* Card Content */}
-        <div className="relative z-10 p-6 text-white">
+        {/* Card Content - responsive padding */}
+        <div className="relative z-10 p-4 md:p-6 text-white">
           {/* Icon */}
           {Icon && (
             <div
@@ -67,8 +67,8 @@ const CardService = ({
             </div>
           )}
 
-          {/* Title */}
-          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          {/* Responsive title */}
+          <h3 className="text-lg md:text-xl font-semibold mb-2">{title}</h3>
           <p className="text-sm text-gray-200 line-clamp-3">{description}</p>
         </div>
       </motion.div>

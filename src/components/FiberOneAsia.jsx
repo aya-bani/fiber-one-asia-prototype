@@ -53,7 +53,8 @@ export default function FiberOneAsia() {
   }, []);
 
   return (
-    <section className="h-[30vh] flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
+    /* Responsive height and padding */
+    <section className="min-h-[20vh] md:h-[30vh] flex items-center justify-center bg-gradient-to-b from-white to-gray-50 px-4 py-8 md:py-0 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -64,13 +65,15 @@ export default function FiberOneAsia() {
           initial={{ letterSpacing: "-0.1em", opacity: 0 }}
           animate={{ letterSpacing: "0em", opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="flex items-center gap-4"
+          // Responsive text layout: flex-wrap on mobile to prevent overflow
+          className="flex flex-wrap items-center justify-center gap-2 md:gap-4"
         >
-          <h1 className="mx-4 text-4xl md:text-9xl font-extrabold tracking-tight leading-none">
+          <h1 className="mx-2 md:mx-4 text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-extrabold tracking-tight leading-none">
             FIBER
           </h1>
 
           {/* 3D animated globe with react-spring + use-gesture */}
+          {/* Responsive globe size */}
           <animated.div
             ref={domTarget}
             style={{
@@ -82,7 +85,7 @@ export default function FiberOneAsia() {
               rotateY,
               rotateZ,
             }}
-            className="w-20 h-20 md:w-32 md:h-32 cursor-grab"
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 cursor-grab"
           >
             <img
               src={globeGif}
@@ -92,10 +95,10 @@ export default function FiberOneAsia() {
             />
           </animated.div>
 
-          <h1 className="text-5xl md:text-9xl font-extrabold tracking-tight leading-none">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-extrabold tracking-tight leading-none">
             NE
           </h1>
-          <h1 className="ml-4 text-5xl md:text-9xl font-extrabold tracking-wide leading-none text-[#0f172a]">
+          <h1 className="ml-2 md:ml-4 text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-extrabold tracking-wide leading-none text-[#0f172a]">
             ASIA
           </h1>
         </motion.div>
