@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
 import AVGuidePage from "./pages/AVGuidePage";
 import SolutionPage from "./pages/SolutionPage";
-
+import GalleryPage from "./pages/GalleryPage";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -22,6 +22,7 @@ function App() {
     <Route path="home" element={<HomePage />} />
     <Route path="about" element={<AboutPage />} />
     <Route path="solutions" element={<SolutionPage />} />
+    <Route path="gallery" element={<GalleryPage />} /> {/* corrected */}
     <Route path="av-guide" element={<AVGuidePage />} />
     <Route path="contact" element={<ContactPage />} />
   </Route>

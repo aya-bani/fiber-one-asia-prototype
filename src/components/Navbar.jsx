@@ -11,7 +11,7 @@ const links = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/about" },
   { name: "Solutions", path: "/solutions" },
-  { name: "Gallery", path: "/home#gallery" }, // corrected
+  { name: "Gallery", path: "/gallery" }, // corrected
   { name: "AV Design Guide", path: "/av-guide" },
   { name: "Contact", path: "/contact" },
 ];
