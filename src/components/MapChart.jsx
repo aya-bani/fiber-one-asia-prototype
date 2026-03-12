@@ -15,11 +15,7 @@ export default function MapChart({ hovered, setHovered }) {
       
       // Adjust positions for better label placement - labels below flags
       const adjustments = {
-        "India": [0, 0],            // Centered on country
-        "Singapore": [0, 0],        // Centered on country
-        "Malaysia": [0, 0],         // Centered on country
-        "Indonesia": [0, 0],        // Centered on country
-        "Philippines": [0, 0]       // Centered on country
+       
       };
       
       const adjustment = adjustments[countryName] || [0, 0];
@@ -97,123 +93,28 @@ export default function MapChart({ hovered, setHovered }) {
               })}
 
               {/* Country Markers with Flags */}
-              {mainCountries.map((country) => {
-                const position = getCountryPosition(country, geographies);
-                const flagColors = getFlagColors(country);
-                
-                if (!position) return null;
-
-          return (
-            <g key={country}>
-              {/* Teardrop Pin */}
-              <path
-                d={`M ${position[0]} ${position[1]} L ${position[0] - 2} ${position[1] + 8} L ${position[0] + 2} ${position[1] + 8} Z`}
-                fill="#00A39B"
-                stroke="#008B8B"
-                strokeWidth="0.5"
-              />
-              
-              {/* Flag Circle */}
-              <circle
-                cx={position[0]}
-                cy={position[1] - 1}
-                r="3"
-                fill={flagColors[0]}
-                stroke="#fff"
-                strokeWidth="0.3"
-              />
-              
-                          {/* Real Flag Details */}
-                          {country === "India" && (
-                            <>
-                              {/* Saffron stripe */}
-                              <rect x={position[0] - 2.5} y={position[1] - 2.5} width="5" height="1.7" fill={flagColors[0]} />
-                              {/* White stripe with Ashoka Chakra */}
-                              <rect x={position[0] - 2.5} y={position[1] - 0.8} width="5" height="1.7" fill={flagColors[1]} />
-                              <circle cx={position[0]} cy={position[1]} r="0.6" fill={flagColors[3]} />
-                              {/* Green stripe */}
-                              <rect x={position[0] - 2.5} y={position[1] + 0.8} width="5" height="1.7" fill={flagColors[2]} />
-                            </>
-                          )}
-                          
-                          {country === "Singapore" && (
-                            <>
-                              {/* Red stripe */}
-                              <rect x={position[0] - 2.5} y={position[1] - 2.5} width="5" height="2.5" fill={flagColors[0]} />
-                              {/* White stripe */}
-                              <rect x={position[0] - 2.5} y={position[1]} width="5" height="2.5" fill={flagColors[1]} />
-                              {/* Crescent and stars */}
-                              <circle cx={position[0] - 1.5} cy={position[1] - 1} r="0.4" fill={flagColors[1]} />
-                              <circle cx={position[0] - 1.2} cy={position[1] - 1.2} r="0.3" fill={flagColors[0]} />
-                            </>
-                          )}
-                          
-                          {country === "Malaysia" && (
-                            <>
-                              {/* Red stripes */}
-                              <rect x={position[0] - 2.5} y={position[1] - 2.5} width="5" height="1.25" fill={flagColors[0]} />
-                              <rect x={position[0] - 2.5} y={position[1] - 0.5} width="5" height="1.25" fill={flagColors[0]} />
-                              <rect x={position[0] - 2.5} y={position[1] + 1.5} width="5" height="1.25" fill={flagColors[0]} />
-                              <rect x={position[0] - 2.5} y={position[1] + 3.5} width="5" height="1.25" fill={flagColors[0]} />
-                              {/* White stripes */}
-                              <rect x={position[0] - 2.5} y={position[1] - 1.25} width="5" height="1.25" fill={flagColors[1]} />
-                              <rect x={position[0] - 2.5} y={position[1] + 0.25} width="5" height="1.25" fill={flagColors[1]} />
-                              <rect x={position[0] - 2.5} y={position[1] + 2.25} width="5" height="1.25" fill={flagColors[1]} />
-                              {/* Blue canton */}
-                              <rect x={position[0] - 2.5} y={position[1] - 2.5} width="2.5" height="2.5" fill={flagColors[2]} />
-                              {/* Crescent and star */}
-                              <circle cx={position[0] - 1.2} cy={position[1] - 1} r="0.3" fill={flagColors[1]} />
-                            </>
-                          )}
-                          
-                          {country === "Indonesia" && (
-                            <>
-                              {/* Red stripe */}
-                              <rect x={position[0] - 2.5} y={position[1] - 2.5} width="5" height="2.5" fill={flagColors[0]} />
-                              {/* White stripe */}
-                              <rect x={position[0] - 2.5} y={position[1]} width="5" height="2.5" fill={flagColors[1]} />
-                            </>
-                          )}
-                          
-                          {country === "Philippines" && (
-                            <>
-                              {/* Blue stripe */}
-                              <rect x={position[0] - 2.5} y={position[1] - 2.5} width="5" height="2.5" fill={flagColors[0]} />
-                              {/* Red stripe */}
-                              <rect x={position[0] - 2.5} y={position[1]} width="5" height="2.5" fill={flagColors[1]} />
-                              {/* White triangle */}
-                              <polygon 
-                                points={`${position[0] - 2.5},${position[1] - 2.5} ${position[0] - 2.5},${position[1] + 2.5} ${position[0] - 0.5},${position[1]}`} 
-                                fill={flagColors[2]} 
-                              />
-                              {/* Sun and stars */}
-                              <circle cx={position[0] - 1.5} cy={position[1] - 0.5} r="0.3" fill={flagColors[3]} />
-                            </>
-                          )}
-              
-                          {/* Country Label - positioned below the flag and pin */}
-                          <text
-                            x={position[0]}
-                            y={position[1] + 12}
-                            textAnchor="middle"
-                            alignmentBaseline="central"
-                            style={{
-                              fontFamily: "Arial, sans-serif",
-                              fontSize: 11,
-                              fill: "#000",
-                              fontWeight: "bold",
-                              textShadow: "1px 1px 1px rgba(255,255,255,0.9)"
-                            }}
-                          >
-                            {country}
-                          </text>
-            </g>
-          );
-        })}
             </>
           )}
         </Geographies>
       </ComposableMap>
+
+      {/* Country names below the map */}
+      <div className="flex flex-wrap justify-center gap-4 md:gap-8 px-4 py-5 bg-gray-50 border-t border-gray-200">
+        {mainCountries.map((country) => (
+          <button
+            key={country}
+            onMouseEnter={() => setHovered(country)}
+            onMouseLeave={() => setHovered(null)}
+            className={`px-4 py-2 rounded-full text-sm md:text-base font-semibold transition-all duration-200 cursor-pointer ${
+              hovered === country
+                ? "bg-[#00A39B] text-white shadow-lg scale-105"
+                : "bg-white text-gray-700 border border-gray-200 hover:border-[#00A39B] hover:text-[#00A39B]"
+            }`}
+          >
+            {country}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
