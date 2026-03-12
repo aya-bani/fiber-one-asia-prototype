@@ -141,45 +141,7 @@ const AVDesignGuide = () => {
 
   return (
     <div className={`${isFullscreen ? 'fixed inset-0 z-50 bg-gradient-to-br from-slate-900 to-slate-800' : 'relative'} transition-all duration-500`}>
-      {/* Responsive header */}
-      <div className="bg-gradient-to-r from-[#00A39B] to-[#008F87] text-white p-4 md:p-6 shadow-2xl relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <BookOpen className="w-6 h-6 md:w-8 md:h-8" />
-              <motion.div
-                className="absolute inset-0 bg-white/20 rounded-full"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-            <div>
-              <h1 className="text-lg md:text-2xl font-bold">FiberONE Asia</h1>
-              <p className="text-xs md:text-sm opacity-90">Audio-Visual Design Guide</p>
-            </div>
-          </div>
-          {/* Responsive button group: wrap on mobile */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-            <motion.button
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors duration-200 backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-              <span className="ml-2 hidden sm:inline">{isFullscreen ? "Exit Fullscreen" : "Fullscreen"}</span>
-            </motion.button>
-            <motion.button
-              className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-4 h-4" />
-              <span className="hidden sm:inline">Download PDF</span>
-            </motion.button>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Main Content */}
         {/* Responsive main content area */}
